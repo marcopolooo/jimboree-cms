@@ -7,8 +7,6 @@
   </footer>
 </div>
 <!-- ./wrapper -->
-<!-- jQuery 3 -->
-<script src="<?php echo base_url('assets/template/bower_components/jquery/dist/jquery.min.js'); ?>"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url('assets/template/bower_components/jquery-ui/jquery-ui.min.js'); ?>"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -47,15 +45,27 @@
 <script src="<?php echo base_url('assets/template/dist/js/pages/dashboard.js'); ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('assets/template/dist/js/demo.js'); ?>"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url('assets/template/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js'); ?>"></script>
 <script>
-    $('#table').DataTable();
+	$(document).ready(function(){
+		$('#table').DataTable();
+		//Date picker
+    $('#datepicker').datepicker({
+      autoclose: true,
+    })
+	})
+    // $('#table').DataTable({
+		// 	'order': 'desc'
+		// });
 		// $('#table').DataTable({
-		// 	'paging'      : true,
-		// 	'lengthChange': true,
-		// 	'searching'   : true,
-		// 	'ordering'    : true,
-		// 	'info'        : true,
-		// 	'autoWidth'   : true
+		// 	"order": [[ 3, "desc" ]]
+			// 'paging'      : true,
+			// 'lengthChange': true,
+			// 'searching'   : true,
+			// 'ordering'    : true,
+			// 'info'        : true,
+			// 'autoWidth'   : true
 		// });
 	</script>
 </body>

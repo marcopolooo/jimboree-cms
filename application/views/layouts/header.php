@@ -40,9 +40,15 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
   <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/template/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'); ?>">
   
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/template/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css'); ?>">
+
   <link rel="stylesheet" href="<?php echo base_url('assets/css/custom/main.css'); ?>">
+
+  <!-- jQuery 3 -->
+  <script src="<?php echo base_url('assets/template/bower_components/jquery/dist/jquery.min.js'); ?>"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -179,12 +185,12 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active">
-          <a href="#">
+        <li class="<?php echo (($this->uri->segment(1) == "")) ? 'active' : '' ?>">
+          <a href="<?php echo base_url(); ?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="treeview <?php echo (($this->uri->segment(1) == "master-data")) ? 'active' : '' ?>">
           <a href="#">
             <i class="fa fa-bars"></i> <span>Master Data</span>
             <span class="pull-right-container">
@@ -192,18 +198,34 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('/study'); ?>"><i class="fa fa-book"></i> Study</a></li>
+            <li class="<?php echo (($this->uri->segment(2) == "subjects")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/subjects'); ?>">
+                <i class="fa fa-book"></i> Subjects
+              </a>
+            </li>
             <li>
-              <a href="index2.html">
-                <i class="fa fa-pencil"></i> Class<span style="color: red;"> *</span>
+              <a href="<?php echo base_url('master-data/class'); ?>">
+                <i class="fa fa-pencil"></i> Class
                 <!-- <span class="pull-right-container">
                   <p style="color: red;">*</p>
                 </span> -->
               </a>
             </li>
-            <li><a href="index2.html"><i class="fa fa-child"></i> Students</a></li>
-            <li><a href="index2.html"><i class="fa fa-file-o"></i> Teachers</a></li>
-            <li><a href="index2.html"><i class="fa fa-users"></i> Parents</a></li>
+            <li class="<?php echo (($this->uri->segment(2) == "students")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/students'); ?>">
+                <i class="fa fa-child"></i> Students
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "teachers")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/teachers'); ?>">
+                <i class="fa fa-file-o"></i> Teachers
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "parents")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/parents'); ?>">
+                <i class="fa fa-users"></i> Parents
+              </a>
+            </li>
           </ul>
         </li>
         <li>

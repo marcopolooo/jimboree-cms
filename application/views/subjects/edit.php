@@ -15,19 +15,20 @@
       <!-- Main content -->
       <section class="content">
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-lg-12">
               <div class="box box-primary">
                 <!-- form start -->
-                <form role="form" action="<?php echo base_url('study/update'); ?>" method="put">
+                <form role="form" action="<?php echo base_url('master-data/subjects/update'); ?>" method="post">
                     <div class="box-body">
                       <div class="form-group">
                         <label class="col-lg-2" for="study">Mata Pelajaran</label>
                         <div class="col-lg-10">
-                          <input type="email" class="form-control" id="study" placeholder="Enter study" name="study" value="<?php echo $data[0]['nama_mapel']; ?>"><br>
-                          <button type="submit" class="btn btn-primary" >Submit</button>
-                          <a href="<?php echo base_url('study'); ?>" class="btn btn-danger">Cancel</a>
-                        </div>            
+                          <input type="hidden" value="<?php echo $data[0]['mid']; ?>" name="id">
+                          <input type="text" class="form-control" id="study" placeholder="Enter study" name="nama_mapel" value="<?php echo $data[0]['nama_mapel']; ?>" required><br>
+                        </div>
                       </div>
+                      <button type="submit" class="btn btn-primary" >Submit</button>
+                      <a href="<?php echo base_url('master-data/subjects'); ?>" class="btn btn-danger">Cancel</a>
                     </div>
                   </form>
               </div>
