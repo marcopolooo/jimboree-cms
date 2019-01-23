@@ -126,12 +126,12 @@ $route['master-data/roles/update']['post'] = 'roles/update';
 $route['master-data/roles/destroy']['post'] = 'roles/destroy';
 
 // TYPE NILAI
-$route['master-data/type_nilai'] = 'type_nilai';
-$route['master-data/type_nilai/add']= 'type_nilai/add';
-$route['master-data/type_nilai/store']['post'] = 'type_nilai/store';
-$route['master-data/type_nilai/edit/(:num)'] = 'type_nilai/edit/$1';
-$route['master-data/type_nilai/update']['post'] = 'type_nilai/update';
-$route['master-data/type_nilai/destroy']['post'] = 'type_nilai/destroy';
+$route['master-data/typenilai'] = 'typenilai';
+$route['master-data/typenilai/add']= 'typenilai/add';
+$route['master-data/typenilai/store']['post'] = 'typenilai/store';
+$route['master-data/typenilai/edit/(:num)'] = 'typenilai/edit/$1';
+$route['master-data/typenilai/update']['post'] = 'typenilai/update';
+$route['master-data/typenilai/destroy']['post'] = 'typenilai/destroy';
 
 // EVENTS
 $route['master-data/events'] = 'events';
