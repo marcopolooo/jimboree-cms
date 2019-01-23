@@ -11,22 +11,22 @@ class AgamaModel extends CI_Model
     }
 
     public function update($data){
-        $this->nama_ruang_kelas = $data['nama_ruang_kelas'];
-        $this->db->where('id_class', $data['id']);
-        return $this->db->update('tm_class', $this);
+        $this->nama_agama = $data['nama_agama'];
+        $this->db->where('id_agama', $data['id_agama']);
+        return $this->db->update('tm_agama', $this);
     }
 
     public function store($data){
-        $this->nama_ruang_kelas = $data['nama_ruang_kelas'];
-        return $this->db->insert('tm_class', $data);
+        $this->nama_agama = $data['nama_agama'];
+        return $this->db->insert('tm_agama', $data);
     }
 
     public function getById($id){
-        return $this->db->where('id_class', $id)->get('tm_class')->result_array();
+        return $this->db->where('id_agama', $id)->get('tm_agama')->result_array();
     }
 
     public function destroy($id){
-        return $this->db->delete('tm_class', array('id_class' => $id));
+        return $this->db->delete('tm_agama', array('id_agama' => $id));
     }
 }
 
