@@ -226,6 +226,41 @@
                 <i class="fa fa-users"></i> Parents
               </a>
             </li>
+            <li class="<?php echo (($this->uri->segment(2) == "agama")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/agama'); ?>">
+                <i class="fa fa-user"></i> Agama
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "contacts")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/contacts'); ?>">
+                <i class="fa fa-user"></i> Contact
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "extracuricullar")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/extracuricullar'); ?>">
+                <i class="fa fa-user"></i> Extracuricullar
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/roles'); ?>">
+                <i class="fa fa-user"></i> Roles 
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/type_nilai'); ?>">
+                <i class="fa fa-user"></i> Type Nilai 
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "events")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/events'); ?>">
+                <i class="fa fa-user"></i> Events 
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/foodmenu'); ?>">
+                <i class="fa fa-user"></i> Food Menu
+              </a>
+            </li>
           </ul>
         </li>
         <li>

@@ -18,17 +18,47 @@
             <div class="col-lg-12">
               <div class="box box-primary">
                 <!-- form start -->
-                <form role="form" action="<?php echo base_url('master-data/class/update'); ?>" method="post">
+                <form role="form" action="<?php echo base_url('master-data/parents/update'); ?>" method="post">
                     <div class="box-body">
                       <div class="form-group">
-                        <label class="col-lg-2" for="class">Mata Pelajaran</label>
+                        <label class="col-lg-2" for="class">Parents</label>
                         <div class="col-lg-10">
-                          <input type="hidden" value="<?php echo $data[0]['id_class']; ?>" name="id">
-                          <input type="text" class="form-control" id="class" placeholder="Enter class" name="nama_ruang_kelas" value="<?php echo $data[0]['nama_ruang_kelas']; ?>" required><br>
+                          <input type="hidden" value="<?php echo $data[0]['id_parents']; ?>" name="id_parents">
+                          <input type="text" class="form-control" id="class" placeholder="Enter Parents Name" name="nama" value="<?php echo $data[0]['nama']; ?>" required><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-2" for="class">Alamat</label>
+                        <div class="col-lg-10">
+                          <textarea name="alamat" id="" cols="30" rows="10" class="form-control"><?= $data[0]['alamat'] ?></textarea><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-2" for="class">Agama</label>
+                        <div class="col-lg-10">
+                        <select class="form-control" name="agama">
+                            <?php 
+                              echo "<option value='". $data[0]['id_agama'] . "' selected>" . $data[0]['agama'] . "</option>";
+                              foreach ($agama as $a ) {
+                                if($data[0]['agama'] != $a->nama_agama){
+                                  echo "<option value='". $a->id_agama . "'>" . $a->nama_agama . "</option>";
+                                }
+                              }
+                            ?>
+                          </select><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-2" for="class">Parents</label>
+                        <div class="col-lg-10">
+                        <select class="form-control" name="agama">
+                        <option value="ayah" <?php if ($data[0]['role_parents'] == 'ayah'){echo 'selected';} ?>>Ayah</option>
+                          <option value="ibu" <?php if ($data[0]['role_parents'] == 'ibu'){ echo 'selected'; }?>>Ibu</option>
+                        </select><br>                       
                         </div>
                       </div>
                       <button type="submit" class="btn btn-primary" >Submit</button>
-                      <a href="<?php echo base_url('master-data/class'); ?>" class="btn btn-danger">Cancel</a>
+                      <a href="<?php echo base_url('master-data/parents'); ?>" class="btn btn-danger">Cancel</a>
                     </div>
                   </form>
               </div>

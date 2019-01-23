@@ -138,7 +138,13 @@ $model = array(
 			'StudentsModel', 
 			'AgamaModel', 
 			'TeachersModel',
-			'ParentsModel'
+			'ParentsModel',
+			'ContactsModel',
+			'ExtracuricullarModel',
+			'RolesModel',
+			'TypeNilaiModel',
+			'EventsModel',
+			'FoodMenuModel'
 		);
 				
 $autoload['model'] = $model;

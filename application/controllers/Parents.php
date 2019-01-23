@@ -13,42 +13,49 @@ class Parents extends CI_Controller
     }
 
     public function add(){
-        $this->load->view('parents/add');    
+        $result['agama']=$this->AgamaModel->get();
+        $this->load->view('parents/add', $result);    
     }
 
     public function store(){
-        $data['nama_ruang_kelas'] = $this->input->post('nama_ruang_kelas');
+        $data['nama'] = $this->input->post('nama');
+        $data['id_agama'] = $this->input->post('id_agama');
+        $data['alamat'] = $this->input->post('alamat');
+        $data['role_parents'] = $this->input->post('role_parents');
         $result = $this->ParentsModel->store($data);
         if ($result) {
             $this->session->set_flashdata('success', 'Success insert!');
-            redirect('master-data/class');
+            redirect('master-data/parents');
         } else{
             $this->session->set_flashdata('error', 'Failed insert!');
-            redirect('master-data/class');
+            redirect('master-data/parents');
         }
     }
 
     public function edit($id){
         $result['data'] = $this->ParentsModel->getById($id);
+        $result['agama'] = $this->AgamaModel->get();
         $this->load->view('parents/edit', $result);
     }
 
     public function update(){
         $data = array();
-        $data['id'] = $this->input->post('id');
-        $data['nama_ruang_kelas'] = $this->input->post('nama_ruang_kelas');
+        $data['nama'] = $this->input->post('nama');
+        $data['id_agama'] = $this->input->post('id_agama');
+        $data['alamat'] = $this->input->post('alamat');
+        $data['role_parents'] = $this->input->post('role_parents');
         $result = $this->ParentsModel->update($data);
         if ($result) {
             $this->session->set_flashdata('success', 'Success update!');
-            redirect('master-data/class');
+            redirect('master-data/parents');
         } else{
             $this->session->set_flashdata('error', 'Failed update!');
-            redirect('master-data/class');
+            redirect('master-data/parents');
         }
     }
 
     public function destroy(){
-        $id = $this->input->post('id_class');
+        $id = $this->input->post('id_parents');
         $this->ParentsModel->destroy($id);
         if($this->db->affected_rows()){
             $this->session->set_flashdata('success', 'Success delete!');

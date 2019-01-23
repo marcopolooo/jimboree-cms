@@ -33,7 +33,7 @@
                   <tr>
                     <th>No</th>
                     <th>Parents</th>
-                    <th>Contact</th>
+                    <th>Alamat</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -45,9 +45,10 @@
                       <tr>
                         <td><?php echo $index+1 ?></td>
                         <td><?php echo $d->nama?></td>
+                        <td><?php echo $d->alamat?></td>
                         <td>
-                          <a href="<?php echo base_url('master-data/parents/edit/' . $d->id_class); ?>" class="btn btn-info">Edit</a>
-                          <a href="#" onclick="deleteItem(<?php echo $d->id_class; ?>)" class="btn btn-danger">Delete</a>
+                          <a href="<?php echo base_url('master-data/parents/edit/' . $d->id_parents); ?>" class="btn btn-info">Edit</a>
+                          <a href="#" onclick="deleteItem(<?php echo $d->id_parents; ?>)" class="btn btn-danger">Delete</a>
                         </td>
                       </tr>
                   <?php
@@ -71,7 +72,7 @@
       $.ajax({
         url: window.location.origin + "/jimboree-cms/master-data/parents/destroy",
         type: "post",
-        data: {id_class:id},
+        data: {id_parents:id},
         success: function(data){
           window.location.href="http://localhost/jimboree-cms/master-data/parents";
         },
