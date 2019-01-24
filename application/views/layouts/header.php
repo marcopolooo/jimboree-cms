@@ -246,8 +246,8 @@
                 <i class="fa fa-user"></i> Roles 
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "type_nilai")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/type_nilai'); ?>">
+            <li class="<?php echo (($this->uri->segment(2) == "typenilai")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/typenilai'); ?>">
                 <i class="fa fa-user"></i> Type Nilai 
               </a>
             </li>
