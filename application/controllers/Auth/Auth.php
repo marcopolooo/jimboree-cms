@@ -4,7 +4,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Auth extends CI_Controller
 {
     public function index(){
-        $this->load->view('dashboard');
+        $user = array();
+        $user['username'] = $this->input->post('username');
+        $user['password'] = md5($this->input->post('password'));
+        $user = $this->UsersModel->getByUsernameAndPassword($user);
+        if(count($user)>0){
+            $tokenData = array();
+            $tokenData['id'] =  $user[0]['id'];
+            $tokenData['roleId'] =  $user[0]['role_id'];
+            $getToken = $this->getToken_post($tokenData);
+            // print_r($getToken);
+            // die();
+
+            if($getToken && $user){
+                $auth = array(
+                    'id'  => $tokenData['id'],
+                    'roleId' => $tokenData['roleId'],
+                    'token' => $getToken
+                );
+                $this->session->set_userdata($auth);
+                $decodedToken = AUTHORIZATION::validateToken($getToken);
+                if ($decodedToken != false) {
+                    $this->session->set_flashdata('success', 'Success login!');
+                    redirect(base_url('dashboard'), 'refresh');
+                }
+            }
+
+            $this->session->set_flashdata('error', 'Token expired');
+            redirect(base_url(), 'refresh');
+        } else {
+            $this->session->set_flashdata('error', 'Failed login!');
+            redirect(base_url(), 'refresh');
+        }
     }
     
 	public function register()
@@ -14,43 +45,16 @@ class Auth extends CI_Controller
     
     public function getToken_post($data)
     {
-        $tokenData['token'] = AUTHORIZATION::generateToken($data);
+        return $tokenData['token'] = AUTHORIZATION::generateToken($data);
         // $this->set_response($tokenData, REST_Controller::HTTP_OK);
     }
-    
-    public function login()
-    {
 
-        $user = array();
-        $user['username'] = $this->post('username');
-        $user['password'] = md5($this->post('password'));
-        $users = $this->UsersModel->getByUsernameAndPassword($user);
-        if($users){
-            $tokenData = array();
-            $tokenData['userId'] =  $user['userId'];
-            $tokenData['roleId'] =  $user['roleId'];
-            $getToken = $this->getToken_post($tokenData);
-
-            if($getToken && $users){
-                $auth = array(
-                    'userId'  => $getToken['userId'],
-                    'roleId' => $getToken['roleId'],
-                    'token' => $getToken['token']
-                );
-                $this->session->set_userdata($auth);
-                $decodedToken = AUTHORIZATION::validateToken($getToken);
-                if ($decodedToken != false) {
-                    $this->session->set_flashdata('success', 'Success login!');
-                    $this->view('dashboard');
-                    return;
-                }
-            }
-
-            $this->session->set_flashdata('error', 'Token expired');
-            redirect('/', 'refresh');
-        } else {
-            $this->session->set_flashdata('error', 'Failed login!');
-            redirect('/', 'refresh');
-        }
+    public function logout(){
+        unset(
+            $_SESSION['userId'],
+            $_SESSION['roleId'],
+            $_SESSION['token']
+        );
+        redirect(base_url(), 'refresh');
     }
 }

@@ -6,7 +6,15 @@
                 <span class="login100-form-title p-b-43">
                     Please login
                 </span>
+                <?php 
+                    if ($this->session->flashdata('success')) {
+                    echo "<div class='alert alert-info'>" . $this->session->flashdata('success') . "</div>";
+                    }
 
+                    if ($this->session->flashdata('error')) {
+                    echo "<div class='alert alert-danger'>" . $this->session->flashdata('error') . "</div>";
+                    }
+                ?>
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                     <input class="input100" type="text" name="username">
                     <span class="focus-input100"></span>

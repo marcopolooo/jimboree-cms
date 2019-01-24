@@ -49,11 +49,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'dashboard';
+$route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// $route['test'] = 'test/index';
+$route['login']['post'] = 'Auth/auth';
+$route['logout'] = 'Auth/auth/logout';
+$route['dashboard'] = 'dashboard';
+
+// SUBJECTS
 $route['master-data/subjects'] = 'subjects';
 $route['master-data/subjects/add']= 'subjects/add';
 $route['master-data/subjects/store']['post'] = 'subjects/store';
@@ -61,7 +65,7 @@ $route['master-data/subjects/edit/(:num)'] = 'subjects/edit/$1';
 $route['master-data/subjects/update']['post'] = 'subjects/update';
 $route['master-data/subjects/destroy']['post'] = 'subjects/destroy';
 
-/* CLASS */
+// CLASS
 $route['master-data/class'] = 'classes';
 $route['master-data/class/add']= 'classes/add';
 $route['master-data/class/store']['post'] = 'classes/store';
@@ -69,7 +73,7 @@ $route['master-data/class/edit/(:num)'] = 'classes/edit/$1';
 $route['master-data/class/update']['post'] = 'classes/update';
 $route['master-data/class/destroy']['post'] = 'classes/destroy';
 
-/* STUDENTS */
+// STUDENTS
 $route['master-data/students'] = 'students';
 $route['master-data/students/add']= 'students/add';
 $route['master-data/students/store']['post'] = 'students/store';
@@ -77,7 +81,7 @@ $route['master-data/students/edit/(:num)'] = 'students/edit/$1';
 $route['master-data/students/update']['post'] = 'students/update';
 $route['master-data/students/destroy']['post'] = 'students/destroy';
 
-/* TEACHERS */
+// TEACHERS
 $route['master-data/teachers'] = 'teachers';
 $route['master-data/teachers/add']= 'teachers/add';
 $route['master-data/teachers/store']['post'] = 'teachers/store';

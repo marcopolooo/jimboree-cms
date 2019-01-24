@@ -148,7 +148,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo base_url('/logout'); ?>" class="btn btn-default btn-flat">Log out</a>
                 </div>
               </li>
             </ul>
@@ -185,7 +185,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="<?php echo (($this->uri->segment(1) == "")) ? 'active' : '' ?>">
+        <li class="<?php echo (($this->uri->segment(1) == "dashboard")) ? 'active' : '' ?>">
           <a href="<?php echo base_url(); ?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
