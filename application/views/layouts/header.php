@@ -246,7 +246,7 @@
                 <i class="fa fa-user"></i> Roles 
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
+            <li class="<?php echo (($this->uri->segment(2) == "type_nilai")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/type_nilai'); ?>">
                 <i class="fa fa-user"></i> Type Nilai 
               </a>
@@ -256,7 +256,7 @@
                 <i class="fa fa-user"></i> Events 
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
+            <li class="<?php echo (($this->uri->segment(2) == "foodmenu")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/foodmenu'); ?>">
                 <i class="fa fa-user"></i> Food Menu
               </a>
