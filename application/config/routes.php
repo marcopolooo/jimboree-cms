@@ -152,3 +152,11 @@ $route['master-data/foodmenu/store']['post'] = 'foodmenu/store';
 $route['master-data/foodmenu/edit/(:num)'] = 'foodmenu/edit/$1';
 $route['master-data/foodmenu/update']['post'] = 'foodmenu/update';
 $route['master-data/foodmenu/destroy']['post'] = 'foodmenu/destroy';
+
+// SCHOOL
+$route['master-data/school'] = 'school';
+$route['master-data/school/add']= 'school/add';
+$route['master-data/school/store']['post'] = 'school/store';
+$route['master-data/school/edit/(:num)'] = 'school/edit/$1';
+$route['master-data/school/update']['post'] = 'school/update';
+$route['master-data/school/destroy']['post'] = 'school/destroy';

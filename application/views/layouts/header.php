@@ -148,7 +148,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?php echo base_url('/logout'); ?>" class="btn btn-default btn-flat">Log out</a>
+                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -185,7 +185,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="<?php echo (($this->uri->segment(1) == "dashboard")) ? 'active' : '' ?>">
+        <li class="<?php echo (($this->uri->segment(1) == "")) ? 'active' : '' ?>">
           <a href="<?php echo base_url(); ?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
@@ -246,8 +246,8 @@
                 <i class="fa fa-user"></i> Roles 
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "typenilai")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/typenilai'); ?>">
+            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/type_nilai'); ?>">
                 <i class="fa fa-user"></i> Type Nilai 
               </a>
             </li>
@@ -256,9 +256,14 @@
                 <i class="fa fa-user"></i> Events 
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "foodmenu")) ? 'active' : '' ?>">
+            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/foodmenu'); ?>">
                 <i class="fa fa-user"></i> Food Menu
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/school'); ?>">
+                <i class="fa fa-user"></i> School
               </a>
             </li>
           </ul>
