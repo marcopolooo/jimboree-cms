@@ -34,6 +34,12 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="col-lg-2" for="telephone">Telephone</label>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control" id="telephone" placeholder="Enter telephone" name="telephone" value="<?php echo $data[0]['telephone']; ?>" maxlength="45" required><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="col-lg-2" for="class">Agama</label>
                         <div class="col-lg-10">
                         <select class="form-control" name="agama">
@@ -51,9 +57,9 @@
                       <div class="form-group">
                         <label class="col-lg-2" for="class">Parents</label>
                         <div class="col-lg-10">
-                        <select class="form-control" name="agama">
-                        <option value="ayah" <?php if ($data[0]['role_parents'] == 'ayah'){echo 'selected';} ?>>Ayah</option>
-                          <option value="ibu" <?php if ($data[0]['role_parents'] == 'ibu'){ echo 'selected'; }?>>Ibu</option>
+                        <select class="form-control" name="role_parents">
+                        <option value="1" <?php if ($data[0]['role_parents'] == 1){echo 'selected';} ?>>Ayah</option>
+                          <option value="2" <?php if ($data[0]['role_parents'] == 2){ echo 'selected'; }?>>Ibu</option>
                         </select><br>                       
                         </div>
                       </div>

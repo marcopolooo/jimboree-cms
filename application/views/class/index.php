@@ -36,24 +36,6 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <?php 
-                    if (isset($data)) {
-                      foreach ($data as $index => $d) {
-                  ?>
-                      <tr>
-                        <td><?php echo $index+1 ?></td>
-                        <td><?php echo $d->nama_ruang_kelas?></td>
-                        <td>
-                          <a href="<?php echo base_url('master-data/class/edit/' . $d->id_class); ?>" class="btn btn-info">Edit</a>
-                          <a href="#" onclick="deleteItem(<?php echo $d->id_class; ?>)" class="btn btn-danger">Delete</a>
-                        </td>
-                      </tr>
-                  <?php
-                      }
-                    }
-                  ?>
-                </tbody>
               </table>
             </div>
           </div>
@@ -82,3 +64,20 @@
   }
 </script>
 <?php $this->load->view('layouts/footer.php'); ?>
+<script>
+$('#table').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "order": [],
+    "ajax":{
+      "url":"<?php echo base_url('/master-data/class/index-data'); ?>",
+      "type":"POST"
+    },
+    "columnDefs":[
+      {
+        "targets":[0],
+        "orderable":false
+      }
+    ]
+  });
+</script>

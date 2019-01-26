@@ -59,6 +59,7 @@ $route['dashboard'] = 'dashboard';
 
 // SUBJECTS
 $route['master-data/subjects'] = 'subjects';
+$route['master-data/subjects/index-data'] = 'subjects/indexData';
 $route['master-data/subjects/add']= 'subjects/add';
 $route['master-data/subjects/store']['post'] = 'subjects/store';
 $route['master-data/subjects/edit/(:num)'] = 'subjects/edit/$1';
@@ -67,6 +68,7 @@ $route['master-data/subjects/destroy']['post'] = 'subjects/destroy';
 
 // CLASS
 $route['master-data/class'] = 'classes';
+$route['master-data/class/index-data'] = 'classes/indexData';
 $route['master-data/class/add']= 'classes/add';
 $route['master-data/class/store']['post'] = 'classes/store';
 $route['master-data/class/edit/(:num)'] = 'classes/edit/$1';
@@ -75,6 +77,7 @@ $route['master-data/class/destroy']['post'] = 'classes/destroy';
 
 // STUDENTS
 $route['master-data/students'] = 'students';
+$route['master-data/students/index-data'] = 'students/indexData';
 $route['master-data/students/add']= 'students/add';
 $route['master-data/students/store']['post'] = 'students/store';
 $route['master-data/students/edit/(:num)'] = 'students/edit/$1';
@@ -83,6 +86,7 @@ $route['master-data/students/destroy']['post'] = 'students/destroy';
 
 // TEACHERS
 $route['master-data/teachers'] = 'teachers';
+$route['master-data/teachers/index-data'] = 'teachers/indexData';
 $route['master-data/teachers/add']= 'teachers/add';
 $route['master-data/teachers/store']['post'] = 'teachers/store';
 $route['master-data/teachers/edit/(:num)'] = 'teachers/edit/$1';
@@ -91,6 +95,7 @@ $route['master-data/teachers/destroy']['post'] = 'teachers/destroy';
 
 // PARENTS
 $route['master-data/parents'] = 'parents';
+$route['master-data/parents/index-data'] = 'parents/indexData';
 $route['master-data/parents/add']= 'parents/add';
 $route['master-data/parents/store']['post'] = 'parents/store';
 $route['master-data/parents/edit/(:num)'] = 'parents/edit/$1';
@@ -99,6 +104,7 @@ $route['master-data/parents/destroy']['post'] = 'parents/destroy';
 
 // AGAMA
 $route['master-data/agama'] = 'agama';
+$route['master-data/agama/index-data'] = 'agama/indexData';
 $route['master-data/agama/add']= 'agama/add';
 $route['master-data/agama/store']['post'] = 'agama/store';
 $route['master-data/agama/edit/(:num)'] = 'agama/edit/$1';
@@ -107,6 +113,7 @@ $route['master-data/agama/destroy']['post'] = 'agama/destroy';
 
 // CONTACTS
 $route['master-data/contacts'] = 'contacts';
+$route['master-data/contacts/index-data'] = 'contacts/indexData';
 $route['master-data/contacts/add']= 'contacts/add';
 $route['master-data/contacts/store']['post'] = 'contacts/store';
 $route['master-data/contacts/edit/(:num)'] = 'contacts/edit/$1';
@@ -115,6 +122,7 @@ $route['master-data/contacts/destroy']['post'] = 'contacts/destroy';
 
 // EKSKUL
 $route['master-data/extracuricullar'] = 'extracuricullar';
+$route['master-data/extracuricullar/index-data'] = 'extracuricullar/indexData';
 $route['master-data/extracuricullar/add']= 'extracuricullar/add';
 $route['master-data/extracuricullar/store']['post'] = 'extracuricullar/store';
 $route['master-data/extracuricullar/edit/(:num)'] = 'extracuricullar/edit/$1';
@@ -123,6 +131,7 @@ $route['master-data/extracuricullar/destroy']['post'] = 'extracuricullar/destroy
 
 // ROLES
 $route['master-data/roles'] = 'roles';
+$route['master-data/roles/index-data'] = 'roles/indexData';
 $route['master-data/roles/add']= 'roles/add';
 $route['master-data/roles/store']['post'] = 'roles/store';
 $route['master-data/roles/edit/(:num)'] = 'roles/edit/$1';
@@ -131,6 +140,7 @@ $route['master-data/roles/destroy']['post'] = 'roles/destroy';
 
 // TYPE NILAI
 $route['master-data/typenilai'] = 'typenilai';
+$route['master-data/typenilai/index-data'] = 'typenilai/indexData';
 $route['master-data/typenilai/add']= 'typenilai/add';
 $route['master-data/typenilai/store']['post'] = 'typenilai/store';
 $route['master-data/typenilai/edit/(:num)'] = 'typenilai/edit/$1';
@@ -139,6 +149,7 @@ $route['master-data/typenilai/destroy']['post'] = 'typenilai/destroy';
 
 // EVENTS
 $route['master-data/events'] = 'events';
+$route['master-data/events/index-data'] = 'events/indexData';
 $route['master-data/events/add']= 'events/add';
 $route['master-data/events/store']['post'] = 'events/store';
 $route['master-data/events/edit/(:num)'] = 'events/edit/$1';
@@ -147,6 +158,7 @@ $route['master-data/events/destroy']['post'] = 'events/destroy';
 
 // FOOD MENU
 $route['master-data/foodmenu'] = 'foodmenu';
+$route['master-data/foodmenu/index-data'] = 'foodmenu/indexData';
 $route['master-data/foodmenu/add']= 'foodmenu/add';
 $route['master-data/foodmenu/store']['post'] = 'foodmenu/store';
 $route['master-data/foodmenu/edit/(:num)'] = 'foodmenu/edit/$1';

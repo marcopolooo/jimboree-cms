@@ -29,37 +29,37 @@
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Telephone</label>
                         <div class="col-lg-10">
-                          <input type="number" class="form-control" id="class" placeholder="Enter Telephone" name="telephone" required><br>
+                          <input type="text" class="form-control" id="class" placeholder="Enter Telephone" name="telephone"><br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">No Fax</label>
                         <div class="col-lg-10">
-                          <input type="number" class="form-control" id="class" placeholder="Enter No Fax" name="no_fax" required><br>
+                          <input type="text" class="form-control" id="class" placeholder="Enter No Fax" name="no_fax"><br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Email</label>
                         <div class="col-lg-10">
-                          <input type="email" class="form-control" id="class" placeholder="Enter Email" name="no_email" required><br>
+                          <input type="email" class="form-control" id="class" placeholder="Enter Email" name="email"><br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Media Center</label>
                         <div class="col-lg-10">
-                          <input type="text" class="form-control" id="class" placeholder="Enter Media Center" name="media_center" required><br>
+                          <input type="text" class="form-control" id="class" placeholder="Enter Media Center" name="media_center"><br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Staff Direcctory</label>
                         <div class="col-lg-10">
-                          <input type="text" class="form-control" id="class" placeholder="Enter Staff Direcctory" name="staff_direcctory" required><br>
+                          <input type="text" class="form-control" id="class" placeholder="Enter Staff Direcctory" name="staff_directory"><br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Facebook</label>
                         <div class="col-lg-10">
-                          <input type="text" class="form-control" id="class" placeholder="Enter Facebook" name="facebook" required><br>
+                          <input type="text" class="form-control" id="class" placeholder="Enter Facebook" name="facebook"><br>
                         </div>
                       </div>
                       <button type="submit" class="btn btn-primary" >Submit</button>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- <?php $retVal = (condition) ? a : b ;?> -->
-  <title><?php echo ($this->uri->segment(1) == "") ? "JimboRee" : "JimboRee" . " | " . ucfirst($this->uri->segment(1)); ?></title>
+  <title><?php echo ($this->uri->segment(1) == "") ? "JimboRee" : "JimboRee" . " " . ucfirst($this->uri->segment(1)); ?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->

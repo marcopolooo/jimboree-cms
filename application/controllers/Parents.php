@@ -3,6 +3,13 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Parents extends CI_Controller
 {
+    var $table = 'tm_parents';
+    var $column_order = array(null, 'nama', 'alamat', 'telephone'); //set column field database for datatable orderable
+    var $column_search = array('nama', 'alamat', 'telephone'); //set column field database for datatable searchable 
+    var $order = array('id_parents' => 'asc'); // default order 
+    var $data = [];
+    var $id = "id_parents";
+
     function __construct(){
         parent::__construct();
     }
@@ -10,6 +17,63 @@ class Parents extends CI_Controller
     public function index(){
         $result['data'] = $this->ParentsModel->get();
         $this->load->view('parents/index', $result);
+    }
+
+    public function indexData(){
+        $data['id'] = $this->id;
+        if(isset($_POST['search']['value'])){
+            $data['search'] = array(
+                'value' => $_POST['search']['value']
+            );
+        }
+
+        if(isset($_POST['search']['value'])){
+            $data['search'] = array(
+                'value' => $_POST['search']['value']
+            );
+        }
+
+        if(isset($_POST['order'])){
+            $data['order'] = array(
+                'column' => $_POST['order'][0]['column'],
+                'dir' => $_POST['order'][0]['dir']
+            );
+        } else{
+            $data['order'] = $this->order;
+        }
+
+        if($_POST['length'] != -1){
+            $data['length'] = $_POST['length'];
+            $data['start'] = $_POST['start'];
+        }
+        $data['column_search'] = $this->column_search;
+
+        $datatable = new Datatables($this->table, $data, $this->column_order, $this->order);
+        $list = $datatable->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $l) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $l->nama;
+            $row[] = $l->alamat;
+            $row[] = $l->telephone;
+            $row[] =
+            '<a class="btn btn-sm btn-primary" href="'. base_url("master-data/parents/edit/".$l->id_parents) .'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+            <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="deleteItem('."'".$l->id_parents."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+
+            $data[] = $row;
+        }
+ 
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $datatable->count_all(),
+            "recordsFiltered" => $datatable->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        echo json_encode($output);
     }
 
     public function add(){
@@ -40,9 +104,11 @@ class Parents extends CI_Controller
 
     public function update(){
         $data = array();
+        $data['id'] = $this->input->post('id_parents');
         $data['nama'] = $this->input->post('nama');
         $data['id_agama'] = $this->input->post('id_agama');
         $data['alamat'] = $this->input->post('alamat');
+        $data['telephone'] = $this->input->post('telephone');
         $data['role_parents'] = $this->input->post('role_parents');
         $result = $this->ParentsModel->update($data);
         if ($result) {

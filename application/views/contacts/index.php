@@ -34,38 +34,12 @@
                     <th>No</th>
                     <th>Alamat</th>
                     <th>Telephone</th>
-                    <th>No Fax</th>
                     <th>Email</th>
                     <th>Media Center</th>
                     <th>Staff Direcctory</th>
-                    <th>Facebook</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <?php 
-                    if (isset($data)) {
-                      foreach ($data as $index => $d) {
-                  ?>
-                      <tr>
-                        <td><?php echo $index+1 ?></td>
-                        <td><?php echo $d->alamat ?></td>
-                        <td><?php echo $d->telephone ?></td>
-                        <td><?php echo $d->no_fax ?></td>
-                        <td><?php echo $d->no_email ?></td>
-                        <td><?php echo $d->media_center ?></td>
-                        <td><?php echo $d->staff_direcctory ?></td>
-                        <td><a href="https://www.<?= $d->facebook?>"><?php echo $d->facebook ?></a></td>
-                        <td>
-                          <a href="<?php echo base_url('master-data/contacts/edit/' . $d->cid); ?>" class="btn btn-info">Edit</a>
-                          <a href="#" onclick="deleteItem(<?php echo $d->cid; ?>)" class="btn btn-danger">Delete</a>
-                        </td>
-                      </tr>
-                  <?php
-                      }
-                    }
-                  ?>
-                </tbody>
               </table>
             </div>
           </div>
@@ -94,3 +68,20 @@
   }
 </script>
 <?php $this->load->view('layouts/footer.php'); ?>
+<script>
+$('#table').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "order": [],
+    "ajax":{
+      "url":"<?php echo base_url('/master-data/contacts/index-data'); ?>",
+      "type":"POST"
+    },
+    "columnDefs":[
+      {
+        "targets":[0],
+        "orderable":false
+      }
+    ]
+  });
+</script>

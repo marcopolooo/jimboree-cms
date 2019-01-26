@@ -1,8 +1,10 @@
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      <b style="display:none">Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    <strong style="display:none">Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    reserved.
+		<strong>Copyright &copy; <?php echo date('Y'); ?><a href="#"> JimboRee School</a>.</strong> All rights
     reserved.
   </footer>
 </div>
@@ -49,7 +51,6 @@
 <script src="<?php echo base_url('assets/template/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js'); ?>"></script>
 <script>
 	$(document).ready(function(){
-		$('#table').DataTable();
 		//Date picker
     $('#datepicker').datepicker({
       autoclose: true,

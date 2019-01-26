@@ -33,29 +33,11 @@
                   <tr>
                     <th>No</th>
                     <th>Parents</th>
-                    <th>Alamat</th>
+                    <th>Address</th>
+                    <th>Telephone</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <?php 
-                    if (isset($data)) {
-                      foreach ($data as $index => $d) {
-                  ?>
-                      <tr>
-                        <td><?php echo $index+1 ?></td>
-                        <td><?php echo $d->nama?></td>
-                        <td><?php echo $d->alamat?></td>
-                        <td>
-                          <a href="<?php echo base_url('master-data/parents/edit/' . $d->id_parents); ?>" class="btn btn-info">Edit</a>
-                          <a href="#" onclick="deleteItem(<?php echo $d->id_parents; ?>)" class="btn btn-danger">Delete</a>
-                        </td>
-                      </tr>
-                  <?php
-                      }
-                    }
-                  ?>
-                </tbody>
               </table>
             </div>
           </div>
@@ -84,3 +66,20 @@
   }
 </script>
 <?php $this->load->view('layouts/footer.php'); ?>
+<script>
+$('#table').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "order": [],
+    "ajax":{
+      "url":"<?php echo base_url('/master-data/parents/index-data'); ?>",
+      "type":"POST"
+    },
+    "columnDefs":[
+      {
+        "targets":[0],
+        "orderable":false
+      }
+    ]
+  });
+</script>

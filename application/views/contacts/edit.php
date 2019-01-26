@@ -30,19 +30,19 @@
                         <label class="col-lg-2" for="nama">Telephone</label>
                         <div class="col-lg-10">
                         <input type="hidden" value="<?php echo $data[0]['cid']; ?>" name="cid">
-                        <input type="number" value="<?= $data[0]['telephone']?>" class="form-control" id="class" placeholder="Enter Telephone" name="telephone" required><br>
+                        <input type="text" value="<?= $data[0]['telephone']?>" class="form-control" id="class" placeholder="Enter Telephone" name="telephone" required><br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">No Fax</label>
                         <div class="col-lg-10">
-                        <input type="number" value="<?= $data[0]['no_fax']?>" class="form-control" id="class" placeholder="Enter No Fax" name="no_fax" required><br>
+                        <input type="text" value="<?= $data[0]['no_fax']?>" class="form-control" id="class" placeholder="Enter No Fax" name="no_fax" required><br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Email</label>
                         <div class="col-lg-10">
-                        <input type="email" value="<?= $data[0]['no_email']?>" class="form-control" id="class" placeholder="Enter Email" name="no_email" required><br>
+                        <input type="email" value="<?= $data[0]['email']?>" class="form-control" id="class" placeholder="Enter Email" name="email" required><br>
                         </div>
                       </div>
                       <div class="form-group">
@@ -54,7 +54,7 @@
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Staff Direcctory</label>
                         <div class="col-lg-10">                          
-                          <input type="text" value="<?= $data[0]['staff_direcctory']?>" class="form-control" id="class" placeholder="Enter Staff Direcctory" name="staff_direcctory" required><br>
+                          <input type="text" value="<?= $data[0]['staff_directory']?>" class="form-control" id="class" placeholder="Enter Staff Direcctory" name="staff_directory" required><br>
                         </div>
                       </div>
                       <div class="form-group">

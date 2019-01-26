@@ -1,4 +1,4 @@
-<?php 
+<?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Agama extends CI_Controller
@@ -7,9 +7,70 @@ class Agama extends CI_Controller
         parent::__construct();
     }
 
+    var $table = 'tm_agama';
+    var $column_order = array(null, 'nama_agama'); //set column field database for datatable orderable
+    var $column_search = array('nama_agama'); //set column field database for datatable searchable 
+    var $order = array('id' => 'asc'); // default order 
+    var $data = [];
+    var $id = "id_agama";
+
     public function index(){
-        $result['data'] = $this->AgamaModel->get();
-        $this->load->view('agama/index', $result);
+        $this->load->view('agama/index');
+    }
+
+    public function indexData(){
+        $data['id'] = $this->id;
+        if(isset($_POST['search']['value'])){
+            $data['search'] = array(
+                'value' => $_POST['search']['value']
+            );
+        }
+
+        if(isset($_POST['search']['value'])){
+            $data['search'] = array(
+                'value' => $_POST['search']['value']
+            );
+        }
+
+        if(isset($_POST['order'])){
+            $data['order'] = array(
+                'column' => $_POST['order'][0]['column'],
+                'dir' => $_POST['order'][0]['dir']
+            );
+        } else{
+            $data['order'] = $this->order;
+        }
+
+        if($_POST['length'] != -1){
+            $data['length'] = $_POST['length'];
+            $data['start'] = $_POST['start'];
+        }
+        $data['column_search'] = $this->column_search;
+
+        $datatable = new Datatables($this->table, $data, $this->column_order, $this->order);
+        $list = $datatable->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $l) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $l->nama_agama;
+            $row[] =
+            '<a class="btn btn-sm btn-primary" href="'. base_url("master-data/agama/edit/".$l->id_agama) .'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+            <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="deleteItem('."'".$l->id_agama."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+
+            $data[] = $row;
+        }
+ 
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $datatable->count_all(),
+            "recordsFiltered" => $datatable->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        echo json_encode($output);
     }
 
     public function add(){

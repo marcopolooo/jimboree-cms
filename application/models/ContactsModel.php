@@ -15,9 +15,9 @@ class ContactsModel extends CI_Model
         $this->alamat = $data['alamat'];
         $this->telephone = $data['telephone'];
         $this->no_fax = $data['no_fax'];
-        $this->no_email = $data['no_email'];
+        $this->email = $data['email'];
         $this->media_center = $data['media_center'];
-        $this->staff_direcctory = $data['staff_direcctory'];
+        $this->staff_directory = $data['staff_directory'];
         $this->facebook = $data['facebook'];
         $this->db->where('cid', $data['cid']);
         return $this->db->update('tm_contact', $this);

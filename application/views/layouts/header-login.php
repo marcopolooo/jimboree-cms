@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title><?php echo SITE_NAME ." - ". ucfirst($this->uri->segment(1)) ?></title>
+    <title><?php echo "JimboRee ". ucfirst($this->uri->segment(1)) ?></title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
