@@ -7,7 +7,7 @@ class ArticlesTypeModel extends CI_Model
     }
 
     public function get(){
-        return $this->db->get('tm_articles_type')->result();
+        return $this->db->get('tm_articles_type')->result_array();
     }
 
     public function update($data){

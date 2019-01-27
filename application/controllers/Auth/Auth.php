@@ -12,6 +12,7 @@ class Auth extends CI_Controller
             $tokenData = array();
             $tokenData['id'] =  $user[0]['id'];
             $tokenData['roleId'] =  $user[0]['role_id'];
+            $tokenData['username'] = $user[0]['username'];
             $getToken = $this->getToken_post($tokenData);
             // print_r($getToken);
             // die();
