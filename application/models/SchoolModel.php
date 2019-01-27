@@ -21,6 +21,7 @@ class SchoolModel extends CI_Model
         $this->alamat = $data['alamat'];
         $this->visi = $data['visi'];
         $this->misi = $data['misi'];
+        $this->motto = $data['motto'];
         $this->file_url = $data['file_url'];
         $this->db->where('id_sekolah', $data['id_sekolah']);
 
@@ -38,6 +39,7 @@ class SchoolModel extends CI_Model
         $this->alamat = $data['alamat'];
         $this->visi = $data['visi'];
         $this->misi = $data['misi'];
+        $this->motto = $data['motto'];
         $this->file_url = $data['file_url'];
         $this->db->where('id_sekolah', $data['id_sekolah']);
 

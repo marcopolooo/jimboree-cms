@@ -80,9 +80,15 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="col-lg-2" for="school">Motto</label>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control" id="school" placeholder="Enter Motto" name="motto" required><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="col-lg-2" for="school">File URL</label>
                         <div class="col-lg-10">
-                          <input type="text" class="form-control" id="school" placeholder="Enter URL File" name="file_url" required><br>
+                          <input type="text" class="form-control" id="school" placeholder="Enter URL File" name="file_url"><br>
                         </div>
                       </div>
                       <button type="submit" class="btn btn-primary" >Submit</button>

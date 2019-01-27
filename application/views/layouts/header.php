@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/template/bower_components/bootstrap-daterangepicker/daterangepicker.css'); ?>">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css'); ?>">
+  <!-- bootstrap datetimepicker -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/template/bower_components/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css'); ?>">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,6 +51,12 @@
 
   <!-- jQuery 3 -->
   <script src="<?php echo base_url('assets/template/bower_components/jquery/dist/jquery.min.js'); ?>"></script>
+  <style>
+    .wysihtml5-sandbox{
+      width: 600px;
+      margin-bottom: 25px;
+    }
+  </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -203,12 +211,9 @@
                 <i class="fa fa-book"></i> Subjects
               </a>
             </li>
-            <li>
+            <li class="<?php echo (($this->uri->segment(2) == "class")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/class'); ?>">
                 <i class="fa fa-pencil"></i> Class
-                <!-- <span class="pull-right-container">
-                  <p style="color: red;">*</p>
-                </span> -->
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "students")) ? 'active' : '' ?>">
@@ -216,54 +221,69 @@
                 <i class="fa fa-child"></i> Students
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "teachers")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/teachers'); ?>">
-                <i class="fa fa-file-o"></i> Teachers
-              </a>
-            </li>
             <li class="<?php echo (($this->uri->segment(2) == "parents")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/parents'); ?>">
                 <i class="fa fa-users"></i> Parents
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "agama")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/agama'); ?>">
-                <i class="fa fa-user"></i> Agama
+            <li class="<?php echo (($this->uri->segment(2) == "foodmenu")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/foodmenu'); ?>">
+                <i class="fa fa-apple"></i> Food Menu
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "contacts")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/contacts'); ?>">
-                <i class="fa fa-user"></i> Contact
+                <i class="fa fa-phone"></i> Contact
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "typenilai")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/typenilai'); ?>">
+                <i class="fa fa-graduation-cap"></i> Score Type 
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "articles")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/articles'); ?>">
+                <i class="fa fa-file"></i> Article
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "articles-type")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/articles-type'); ?>">
+                <i class="fa fa-file"></i> Article Type 
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "teachers")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/teachers'); ?>">
+                <i class="fa fa-gears"></i> Teachers
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "agama")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/agama'); ?>">
+                <i class="fa fa-gears"></i> Agama
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "extracuricullar")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/extracuricullar'); ?>">
-                <i class="fa fa-user"></i> Extracuricullar
+                <i class="fa fa-gears"></i> Extracuricullar
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/roles'); ?>">
-                <i class="fa fa-user"></i> Roles 
-              </a>
-            </li>
-            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/type_nilai'); ?>">
-                <i class="fa fa-user"></i> Type Nilai 
+                <i class="fa fa-gears"></i> Roles 
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "events")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/events'); ?>">
-                <i class="fa fa-user"></i> Events 
+                <i class="fa fa-gears"></i> Events 
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/foodmenu'); ?>">
-                <i class="fa fa-user"></i> Food Menu
+            <li class="<?php echo (($this->uri->segment(2) == "events-type")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/events-type'); ?>">
+                <i class="fa fa-gears"></i> Events Type
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
+            <li class="<?php echo (($this->uri->segment(2) == "school")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/school'); ?>">
-                <i class="fa fa-user"></i> School
+                <i class="fa fa-gears"></i> School
               </a>
             </li>
           </ul>

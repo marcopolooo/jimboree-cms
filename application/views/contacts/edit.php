@@ -36,31 +36,31 @@
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">No Fax</label>
                         <div class="col-lg-10">
-                        <input type="text" value="<?= $data[0]['no_fax']?>" class="form-control" id="class" placeholder="Enter No Fax" name="no_fax" required><br>
+                        <input type="text" value="<?= $data[0]['no_fax']?>" class="form-control" id="class" placeholder="Enter No Fax" name="no_fax"><br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Email</label>
                         <div class="col-lg-10">
-                        <input type="email" value="<?= $data[0]['email']?>" class="form-control" id="class" placeholder="Enter Email" name="email" required><br>
+                        <input type="email" value="<?= $data[0]['email']?>" class="form-control" id="class" placeholder="Enter Email" name="email"><br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Media Center</label>
                         <div class="col-lg-10">
-                        <input type="text" value="<?= $data[0]['media_center']?>" class="form-control" id="class" placeholder="Enter Media Center" name="media_center" required><br>
+                        <input type="text" value="<?= $data[0]['media_center']?>" class="form-control" id="class" placeholder="Enter Media Center" name="media_center"><br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Staff Direcctory</label>
                         <div class="col-lg-10">                          
-                          <input type="text" value="<?= $data[0]['staff_directory']?>" class="form-control" id="class" placeholder="Enter Staff Direcctory" name="staff_directory" required><br>
+                          <input type="text" value="<?= $data[0]['staff_directory']?>" class="form-control" id="class" placeholder="Enter Staff Direcctory" name="staff_directory"><br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Facebook</label>
                         <div class="col-lg-10">
-                          <input type="text" value="<?= $data[0]['facebook']?>" class="form-control" id="class" placeholder="Enter Facebook" name="facebook" required><br>
+                          <input type="text" value="<?= $data[0]['facebook']?>" class="form-control" id="class" placeholder="Enter Facebook" name="facebook"><br>
                         </div>
                       </div>
                       <button type="submit" class="btn btn-primary" >Submit</button>

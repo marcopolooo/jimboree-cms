@@ -20,46 +20,20 @@
                 <!-- form start -->
                 <form role="form" action="<?php echo base_url('master-data/events/store'); ?>" method="post">
                   <div class="box-body">
-                  <div class="form-group">
-                      <label class="col-lg-2">Holiday</label>
-                      <div class="col-lg-10">
-                        <div class="input-group" style="margin-bottom: 20px">
-                          <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                          </div>
-                            <input type="text" class="form-control pull-right" id="datepicker" name="holiday" data-date-format="yyyy-mm-dd" required><br>
-                        </div>
-                    </div>
                     <div class="form-group">
-                      <label class="col-lg-2">Testing</label>
+                      <label class="col-lg-2" for="school">Event</label>
                       <div class="col-lg-10">
-                        <div class="input-group" style="margin-bottom: 20px">
-                          <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                          </div>
-                            <input type="text" class="form-control pull-right" id="datepicker" name="testing" data-date-format="yyyy-mm-dd" required><br>
-                        </div>
+                        <input type="text" class="form-control" id="school" placeholder="Enter Event Type" name="event" required><br>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-2">Fieldtrip</label>
+                      <label class="col-lg-2">Schedule</label>
                       <div class="col-lg-10">
                         <div class="input-group" style="margin-bottom: 20px">
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                            <input type="text" class="form-control pull-right" id="datepicker" name="fieldtrip" data-date-format="yyyy-mm-dd" required><br>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-lg-2">Meeting</label>
-                      <div class="col-lg-10">
-                        <div class="input-group" style="margin-bottom: 20px">
-                          <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                          </div>
-                            <input type="text" class="form-control pull-right" id="datepicker" name="meeting" data-date-format="yyyy-mm-dd" required><br>
+                            <input type="text" class="form-control pull-right" id="datetime" name="meeting" data-date-format="yyyy-mm-dd HH:mm" required><br>
                         </div>
                       </div>
                     </div>

@@ -3,8 +3,16 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Events extends CI_Controller
 {
+    private $table = 'tm_events';
+    private $column_order = array(null, 'holiday', 'testing', 'fieldtrip', 'meeting'); //set column field database for datatable orderable
+    private $column_search = array('holiday', 'testing', 'fieldtrip', 'meeting'); //set column field database for datatable searchable 
+    private $order = array('id_parents' => 'asc'); // default order 
+    private $data = [];
+    private $id = "id_parents";
+
     function __construct(){
         parent::__construct();
+        middleware();
     }
 
     public function index(){

@@ -38,26 +38,6 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <?php 
-                    if (isset($data)) {
-                      foreach ($data as $index => $d) {
-                  ?>
-                      <tr>
-                        <td><?php echo $index+1 ?></td>
-                        <td><?php echo $d->jenis_makanan?></td>
-                        <td><?php echo $d->jenis_minuman?></td>
-                        <td><?php echo $d->jenis_buah?></td>
-                        <td>
-                          <a href="<?php echo base_url('master-data/foodmenu/edit/' . $d->fid); ?>" class="btn btn-info">Edit</a>
-                          <a href="#" onclick="deleteItem(<?php echo $d->fid; ?>)" class="btn btn-danger">Delete</a>
-                        </td>
-                      </tr>
-                  <?php
-                      }
-                    }
-                  ?>
-                </tbody>
               </table>
             </div>
           </div>
@@ -86,3 +66,20 @@
   }
 </script>
 <?php $this->load->view('layouts/footer.php'); ?>
+<script>
+$('#table').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "order": [],
+    "ajax":{
+      "url":"<?php echo base_url('/master-data/foodmenu/index-data'); ?>",
+      "type":"POST"
+    },
+    "columnDefs":[
+      {
+        "targets":[0],
+        "orderable":false
+      }
+    ]
+  });
+</script>

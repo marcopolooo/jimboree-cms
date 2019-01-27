@@ -4,11 +4,11 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          Add Class
+          Add Agama
         </h1>
         <ol class="breadcrumb">
           <li><a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Add Class</li>
+          <li class="active">Add Agama</li>
         </ol>
       </section>
 

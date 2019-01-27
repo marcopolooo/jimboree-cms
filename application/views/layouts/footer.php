@@ -49,11 +49,22 @@
 <script src="<?php echo base_url('assets/template/dist/js/demo.js'); ?>"></script>
 <!-- bootstrap datepicker -->
 <script src="<?php echo base_url('assets/template/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js'); ?>"></script>
+<!-- bootstrap datetimepicker -->
+<script type="text/javascript" src="<?php echo base_url('assets/template/bower_components/moment/src/moment.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/template/bower_components/bootstrap/js/transition.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/template/bower_components/bootstrap/js/collapse.js'); ?>"></script>
+<script src="<?php echo base_url('assets/template/bower_components/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js'); ?>"></script>
+
 <script>
 	$(document).ready(function(){
 		//Date picker
     $('#datepicker').datepicker({
-      autoclose: true,
+			autoclose: true,
+			minDate: 0
+		})
+		$('#datetime').datetimepicker({
+			autoclose: true,
+			minDate: 0
     })
 	})
     // $('#table').DataTable({

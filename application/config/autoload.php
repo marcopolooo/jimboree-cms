@@ -144,9 +144,12 @@ $model = array(
 			'RolesModel',
 			'TypeNilaiModel',
 			'EventsModel',
+			'EventsTypeModel',
 			'FoodMenuModel',
 			'UsersModel',
-			'SchoolModel'
+			'SchoolModel',
+			'ArticlesTypeModel',
+			'ArticlesModel'
 		);
 				
 $autoload['model'] = $model;

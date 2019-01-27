@@ -5,14 +5,15 @@ class Agama extends CI_Controller
 {
     function __construct(){
         parent::__construct();
+        middleware();
     }
 
-    var $table = 'tm_agama';
-    var $column_order = array(null, 'nama_agama'); //set column field database for datatable orderable
-    var $column_search = array('nama_agama'); //set column field database for datatable searchable 
-    var $order = array('id' => 'asc'); // default order 
-    var $data = [];
-    var $id = "id_agama";
+    private $table = 'tm_agama';
+    private $column_order = array(null, 'nama_agama'); //set column field database for datatable orderable
+    private $column_search = array('nama_agama'); //set column field database for datatable searchable 
+    private $order = array('id' => 'asc'); // default order 
+    private $data = [];
+    private $id = "id_agama";
 
     public function index(){
         $this->load->view('agama/index');

@@ -33,45 +33,17 @@
                   <tr>
                     <th>No</th>
                     <th>Nama Sekolah</th>
-                    <th>Tanggal Pendirian</th>
-                    <th>Status Sekolah</th>
-                    <th>Akreditasi</th>
-                    <th>Sertifikasi</th>
-                    <th>Kepala Sekolah</th>
+                    <th>Telephone</th>
                     <th>Alamat</th>
+                    <th>Tanggal Pendirian</th>
                     <th>Visi</th>
                     <th>Misi</th>
-                    <th>File Url</th>
+                    <th>Status Sekolah</th>
+                    <th>Akreditasi</th>
+                    <th>Kepala Sekolah</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <?php 
-                    if (isset($data)) {
-                      foreach ($data as $index => $d) {
-                  ?>
-                      <tr>
-                        <td><?php echo $index+1 ?></td>
-                        <td><?php echo $d->name_school?></td>
-                        <td><?php echo $d->tanggal_pendirian?></td>
-                        <td><?php echo $d->status_sekolah?></td>
-                        <td><?php echo $d->akreditasi?></td>
-                        <td><?php echo $d->sertifikasi?></td>
-                        <td><?php echo $d->kepala_sekolah?></td>
-                        <td><?php echo $d->alamat?></td>
-                        <td><?php echo $d->visi?></td>
-                        <td><?php echo $d->misi?></td>
-                        <td><?php echo $d->file_url?></td>
-                        <td>
-                          <a href="<?php echo base_url('master-data/school/edit/' . $d->id_sekolah); ?>" class="btn btn-info">Edit</a>
-                          <a href="#" onclick="deleteItem(<?php echo $d->id_sekolah; ?>)" class="btn btn-danger">Delete</a>
-                        </td>
-                      </tr>
-                  <?php
-                      }
-                    }
-                  ?>
-                </tbody>
               </table>
             </div>
           </div>
@@ -100,3 +72,20 @@
   }
 </script>
 <?php $this->load->view('layouts/footer.php'); ?>
+<script>
+$('#table').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "order": [],
+    "ajax":{
+      "url":"<?php echo base_url('/master-data/school/index-data'); ?>",
+      "type":"POST"
+    },
+    "columnDefs":[
+      {
+        "targets":[0],
+        "orderable":false
+      }
+    ]
+  });
+</script>

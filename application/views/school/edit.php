@@ -81,6 +81,12 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="col-lg-2" for="motto">Motto</label>
+                        <div class="col-lg-10">
+                            <input type="text" value="<?php echo $data[0]['motto'] ?>" class="form-control" id="class" placeholder="Enter Motto" name="motto" required><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="col-lg-2" for="nama">File URL</label>
                         <div class="col-lg-10">
                             <input type="text" value="<?php echo $data[0]['file_url'] ?>" class="form-control" id="class" placeholder="Enter File URL" name="file_url" required><br>

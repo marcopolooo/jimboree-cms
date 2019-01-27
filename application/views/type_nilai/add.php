@@ -18,7 +18,7 @@
             <div class="col-lg-12">
               <div class="box box-primary">
                 <!-- form start -->
-                <form role="form" action="<?php echo base_url('master-data/type_nilai/store'); ?>" method="post">
+                <form role="form" action="<?php echo base_url('master-data/typenilai/store'); ?>" method="post">
                     <div class="box-body">
                       <div class="form-group">
                         <label class="col-lg-2" for="nama">Desc</label>
@@ -27,7 +27,7 @@
                         </div>
                       </div>
                       <button type="submit" class="btn btn-primary" >Submit</button>
-                      <a href="<?php echo base_url('master-data/type_nilai'); ?>" class="btn btn-danger">Cancel</a>
+                      <a href="<?php echo base_url('master-data/typenilai'); ?>" class="btn btn-danger">Cancel</a>
                     </div>
                   </form>
               </div>

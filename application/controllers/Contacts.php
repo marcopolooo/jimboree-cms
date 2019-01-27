@@ -12,6 +12,7 @@ class Contacts extends CI_Controller
 
     function __construct(){
         parent::__construct();
+        middleware();
     }
 
     public function index(){
@@ -120,6 +121,7 @@ class Contacts extends CI_Controller
         $data['media_center'] = $this->input->post('media_center');
         $data['staff_directory'] = $this->input->post('staff_directory');
         $data['facebook'] = $this->input->post('facebook');
+
         $result = $this->ContactsModel->update($data);
         if ($result) {
             $this->session->set_flashdata('success', 'Success update!');

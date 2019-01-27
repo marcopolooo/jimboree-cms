@@ -3,15 +3,16 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Parents extends CI_Controller
 {
-    var $table = 'tm_parents';
-    var $column_order = array(null, 'nama', 'alamat', 'telephone'); //set column field database for datatable orderable
-    var $column_search = array('nama', 'alamat', 'telephone'); //set column field database for datatable searchable 
-    var $order = array('id_parents' => 'asc'); // default order 
-    var $data = [];
-    var $id = "id_parents";
+    private $table = 'tm_parents';
+    private $column_order = array(null, 'nama', 'alamat', 'telephone'); //set column field database for datatable orderable
+    private $column_search = array('nama', 'alamat', 'telephone'); //set column field database for datatable searchable 
+    private $order = array('id_parents' => 'asc'); // default order 
+    private $data = [];
+    private $id = "id_parents";
 
     function __construct(){
         parent::__construct();
+        middleware();
     }
 
     public function index(){

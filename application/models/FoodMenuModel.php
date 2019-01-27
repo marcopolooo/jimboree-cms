@@ -15,7 +15,7 @@ class FoodMenuModel extends CI_Model
         $this->jenis_minuman = $data['jenis_minuman'];
         $this->jenis_buah = $data['jenis_buah'];
         $this->db->where('fid', $data['fid']);
-        return $this->db->update('fid', $this);
+        return $this->db->update('tm_food_menu', $this);
     }
 
     public function store($data){

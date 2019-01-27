@@ -1,54 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*
-| -------------------------------------------------------------------------
-| URI ROUTING
-| -------------------------------------------------------------------------
-| This file lets you re-map URI requests to specific controller functions.
-|
-| Typically there is a one-to-one relationship between a URL string
-| and its corresponding controller class/method. The segments in a
-| URL normally follow this pattern:
-|
-|	example.com/class/method/id/
-|
-| In some instances, however, you may want to remap this relationship
-| so that a different class/function is called than the one
-| corresponding to the URL.
-|
-| Please see the user guide for complete details:
-|
-|	https://codeigniter.com/user_guide/general/routing.html
-|
-| -------------------------------------------------------------------------
-| RESERVED ROUTES
-| -------------------------------------------------------------------------
-|
-| There are three reserved routes:
-|
-|	$route['default_controller'] = 'welcome';
-|
-| This route indicates which controller class should be loaded if the
-| URI contains no data. In the above example, the "welcome" class
-| would be loaded.
-|
-|	$route['404_override'] = 'errors/page_missing';
-|
-| This route will tell the Router which controller/method to use if those
-| provided in the URL cannot be matched to a valid route.
-|
-|	$route['translate_uri_dashes'] = FALSE;
-|
-| This is not exactly a route, but allows you to automatically route
-| controller and method names that contain dashes. '-' isn't a valid
-| class or method name character, so it requires translation.
-| When you set this option to TRUE, it will replace ALL dashes in the
-| controller and method URI segments.
-|
-| Examples:	my-controller/index	-> my_controller/index
-|		my-controller/my-method	-> my_controller/my_method
-*/
 $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
@@ -156,6 +108,15 @@ $route['master-data/events/edit/(:num)'] = 'events/edit/$1';
 $route['master-data/events/update']['post'] = 'events/update';
 $route['master-data/events/destroy']['post'] = 'events/destroy';
 
+// EVENTS TYPE
+$route['master-data/events-type'] = 'eventstype';
+$route['master-data/events-type/index-data'] = 'eventstype/indexData';
+$route['master-data/events-type/add']= 'eventstype/add';
+$route['master-data/events-type/store']['post'] = 'eventstype/store';
+$route['master-data/events-type/edit/(:num)'] = 'eventstype/edit/$1';
+$route['master-data/events-type/update']['post'] = 'eventstype/update';
+$route['master-data/events-type/destroy']['post'] = 'eventstype/destroy';
+
 // FOOD MENU
 $route['master-data/foodmenu'] = 'foodmenu';
 $route['master-data/foodmenu/index-data'] = 'foodmenu/indexData';
@@ -167,8 +128,27 @@ $route['master-data/foodmenu/destroy']['post'] = 'foodmenu/destroy';
 
 // SCHOOL
 $route['master-data/school'] = 'school';
+$route['master-data/school/index-data'] = 'school/indexData';
 $route['master-data/school/add']= 'school/add';
 $route['master-data/school/store']['post'] = 'school/store';
 $route['master-data/school/edit/(:num)'] = 'school/edit/$1';
 $route['master-data/school/update']['post'] = 'school/update';
 $route['master-data/school/destroy']['post'] = 'school/destroy';
+
+// ARTICLES TYPE
+$route['master-data/articles-type'] = 'articlestype';
+$route['master-data/articles-type/index-data'] = 'articlestype/indexData';
+$route['master-data/articles-type/add']= 'articlestype/add';
+$route['master-data/articles-type/store']['post'] = 'articlestype/store';
+$route['master-data/articles-type/edit/(:num)'] = 'articlestype/edit/$1';
+$route['master-data/articles-type/update']['post'] = 'articlestype/update';
+$route['master-data/articles-type/destroy']['post'] = 'articlestype/destroy';
+
+// ARTICLES TYPE
+$route['master-data/articles'] = 'articles';
+$route['master-data/articles/index-data'] = 'articles/indexData';
+$route['master-data/articles/add']= 'articles/add';
+$route['master-data/articles/store']['post'] = 'articles/store';
+$route['master-data/articles/edit/(:num)'] = 'articles/edit/$1';
+$route['master-data/articles/update']['post'] = 'articles/update';
+$route['master-data/articles/destroy']['post'] = 'articles/destroy';

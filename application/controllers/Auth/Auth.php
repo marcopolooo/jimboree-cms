@@ -19,6 +19,7 @@ class Auth extends CI_Controller
             if($getToken && $user){
                 $auth = array(
                     'id'  => $tokenData['id'],
+                    'username' => $tokenData['username'],
                     'roleId' => $tokenData['roleId'],
                     'token' => $getToken
                 );
