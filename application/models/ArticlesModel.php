@@ -7,22 +7,39 @@ class ArticlesModel extends CI_Model
     }
 
     public function get(){
+        $this->db->select('tm_articles.id, tm_articles.title, tm_articles_type.articles_type, tm_articles.desc, tm_articles.image');
+        $this->db->from('tm_articles');
+        $this->db->join('tm_articles_type', 'tm_articles_type.id = tm_articles.articles_type_id');
+        $this->db->order_by('tm_articles.id', 'desc');
+        $this->db->where('tm_articles.id', $id);
         return $this->db->get('tm_articles')->result();
     }
 
     public function update($data){
-        $this->articles_type = $data['articles_type'];
+        $this->title = $data['title'];
+        $this->articles_type_id = $data['articles_type'];
+        $this->desc = $data['desc'];
+        $this->image = $data['image']['upload_data']['full_path'];
         $this->db->where('id', $data['id']);
         return $this->db->update('tm_articles', $this);
     }
 
     public function store($data){
-        $this->articles_type = $data['articles_type'];
-        return $this->db->insert('tm_articles', $data);
+        $this->title = $data['title'];
+        $this->articles_type_id = $data['articles_type'];
+        $this->desc = $data['desc'];
+        $this->image = $data['image']['upload_data']['full_path'];
+        return $this->db->insert('tm_articles', $this);
     }
 
     public function getById($id){
-        return $this->db->where('id', $id)->get('tm_articles')->result_array();
+        $this->db->select('tm_articles.id, tm_articles.title, tm_articles.articles_type_id, tm_articles_type.articles_type, tm_articles.desc, tm_articles.image');
+        $this->db->from('tm_articles');
+        $this->db->join('tm_articles_type', 'tm_articles_type.id = tm_articles.articles_type_id');
+        $this->db->order_by('tm_articles.id', 'desc');
+        $result = $this->db->where('tm_articles.id', $id)->get()->result_array();
+
+        return $result;
     }
 
     public function destroy($id){

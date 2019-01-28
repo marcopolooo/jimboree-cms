@@ -26,6 +26,12 @@
                           <input type="text" class="form-control" id="article_type" placeholder="Enter Articles Type" name="articles_type" required><br>
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label class="col-lg-2" for="desc">Desc</label>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control" id="article_type" placeholder="Enter Desce" name="desc" required><br>
+                        </div>
+                      </div>
                       <button type="submit" class="btn btn-primary" >Submit</button>
                       <a href="<?php echo base_url('master-data/articles-type'); ?>" class="btn btn-danger">Cancel</a>
                     </div>

@@ -32,10 +32,9 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Holiday</th>
-                    <th>Testing</th>
-                    <th>Fieldtrip</th>
-                    <th>Meeting</th>
+                    <th>Event</th>
+                    <th>Desc</th>
+                    <th>Events Type</th>
                     <th>Action</th>
                   </tr>
                 </thead>

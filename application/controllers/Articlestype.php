@@ -8,12 +8,12 @@ class Articlestype extends CI_Controller
         middleware();
     }
 
-    var $table = 'tm_articles_type';
-    var $column_order = array(null, 'articles_type'); //set column field database for datatable orderable
-    var $column_search = array('articles_type'); //set column field database for datatable searchable 
-    var $order = array('id' => 'asc'); // default order 
-    var $data = [];
-    var $id = "id";
+    private $table = 'tm_articles_type';
+    private $column_order = array(null, 'articles_type'); //set column field database for datatable orderable
+    private $column_search = array('articles_type'); //set column field database for datatable searchable 
+    private $order = array('id' => 'asc'); // default order 
+    private $data = [];
+    private $id = "id";
 
     public function index(){
         $this->load->view('articles-type/index');
@@ -81,6 +81,7 @@ class Articlestype extends CI_Controller
     public function store(){
         $data = array();
         $data['articles_type'] = $this->input->post('articles_type');
+        $data['desc'] = $this->input->post('desc');
 
         $result = $this->ArticlesTypeModel->store($data);
         if ($result) {
@@ -101,6 +102,7 @@ class Articlestype extends CI_Controller
         $data = array();
         $data['id'] = $this->input->post('id');
         $data['articles_type'] = $this->input->post('articles_type');
+        $data['desc'] = $this->input->post('desc');
 
         $result = $this->ArticlesTypeModel->update($data);
         if ($result) {

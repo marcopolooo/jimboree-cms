@@ -18,7 +18,7 @@
             <div class="col-lg-12">
               <div class="box box-primary">
                 <!-- form start -->
-                <form role="form" action="<?php echo base_url('master-data/articles-type/store'); ?>" method="post">
+                <form role="form" action="<?php echo base_url('master-data/articles/store'); ?>" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                       <div class="form-group">
                         <label class="col-lg-2" for="title">Title</label>
@@ -51,7 +51,7 @@
                         </div>
                       </div>
                       <button type="submit" class="btn btn-primary" >Submit</button>
-                      <a href="<?php echo base_url('master-data/articles-type'); ?>" class="btn btn-danger">Cancel</a>
+                      <a href="<?php echo base_url('master-data/articles'); ?>" class="btn btn-danger">Cancel</a>
                     </div>
                   </form>
               </div>
