@@ -174,6 +174,15 @@ $route['master-data/news/edit/(:num)'] = 'master-data/news/edit/$1';
 $route['master-data/news/update']['post'] = 'master-data/news/update';
 $route['master-data/news/destroy']['post'] = 'master-data/news/destroy';
 
+// SCHOOL & IMPROVEMENT
+$route['master-data/schoolimprovement'] = 'master-data/schoolimprovement';
+$route['master-data/schoolimprovement/index-data'] = 'master-data/schoolimprovement/indexData';
+$route['master-data/schoolimprovement/add']= 'master-data/schoolimprovement/add';
+$route['master-data/schoolimprovement/store']['post'] = 'master-data/schoolimprovement/store';
+$route['master-data/schoolimprovement/edit/(:num)'] = 'master-data/schoolimprovement/edit/$1';
+$route['master-data/schoolimprovement/update']['post'] = 'master-data/schoolimprovement/update';
+$route['master-data/schoolimprovement/destroy']['post'] = 'master-data/schoolimprovement/destroy';
+
 // MENU TRANSACTION ==============================================================================================================
 
 // SCHOOL YEAR

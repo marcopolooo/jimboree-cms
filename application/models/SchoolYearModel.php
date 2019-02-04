@@ -11,15 +11,6 @@ class SchoolYearModel extends CI_Model
     }
 
     public function update($data){
-        // $data = array(
-        //     'id_tahun_ajaran' => $data['id_tahun_ajaran']
-        //     'id_sekolah' => $data['id_sekolah'],
-        //     'desc' => $data['desc'],
-        //     'from' => $data['from'],
-        //     'to' => $data['to'],
-        //     'is_active' => $data['is_active']
-        // );
-
         if ($data['is_active'] == "ACTIVE") {
             $this->is_active = "INACTIVE";
             $this->db->where('id_tahun_ajaran !=', $data['id_tahun_ajaran']);

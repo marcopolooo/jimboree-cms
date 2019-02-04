@@ -299,6 +299,11 @@
                 <i class="fa fa-gear"></i> <span>News</span>
               </a>
             </li>
+            <li class="<?php echo (($this->uri->segment(2) == "schoolimprovement")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/schoolimprovement'); ?>">
+                <i class="fa fa-gear"></i> <span>School Improvement</span>
+              </a>
+            </li>
           </ul>
         </li>
         <li class="treeview <?php echo (($this->uri->segment(1) == "transaction")) ? 'active' : '' ?>">
