@@ -1,7 +1,7 @@
 <?php 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class ExtracuricullarStudent extends CI_Controller
+class Extracuricullarstudent extends CI_Controller
 {
     private $table = 'tp_extracuricullar_students';
     private $column_order = array(null, 'nis'); //set column field database for datatable orderable
