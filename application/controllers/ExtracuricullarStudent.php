@@ -87,10 +87,10 @@ class ExtracuricullarStudent extends CI_Controller
         $result = $this->ExtracuricullarModel->store($data);
         if ($result) {
             $this->session->set_flashdata('success', 'Success input');
-            redirect('extracuricullar');
+            redirect('transaction/extracuricullar-student');
         } else{
             $this->session->set_flashdata('error', 'Failed insert!');
-            redirect('extracuricullar');
+            redirect('transaction/extracuricullar-student');
         }
     }
 
@@ -111,10 +111,10 @@ class ExtracuricullarStudent extends CI_Controller
         $result = $this->ExtracuricullarModel->update($data);
         if ($result) {
             $this->session->set_flashdata('success', 'Success Update!');
-            redirect('extracuricullar');
+            redirect('transaction/extracuricullar-student');
         } else{
             $this->session->set_flashdata('error', 'Failed update!');
-            redirect('extracuricullar');
+            redirect('transaction/extracuricullar-student');
         }
     }
 

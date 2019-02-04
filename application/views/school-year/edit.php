@@ -27,7 +27,7 @@
         ?>
             <div class="box box-primary">
               <!-- form start -->
-              <form role="form" action="<?php echo base_url('schoolyear/update'); ?>" method="post">
+              <form role="form" action="<?php echo base_url('transaction/schoolyear/update'); ?>" method="post">
                   <div class="box-body">
                     <div class="form-group">
                       <label class="col-lg-2" for="sekolah">School</label>
@@ -72,7 +72,7 @@
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary" >Submit</button>
-                    <a href="<?php echo base_url('schoolyear'); ?>" class="btn btn-danger">Cancel</a>
+                    <a href="<?php echo base_url('transaction/schoolyear'); ?>" class="btn btn-danger">Cancel</a>
                   </div>
                 </form>
             </div>

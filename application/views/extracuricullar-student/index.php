@@ -16,7 +16,7 @@
   <section class="content">
       <div class="row">
         <div class="col-lg-12">
-          <a href="<?php echo base_url('extracuricullar-student/add'); ?>" class="btn btn-info" id="tambah-tipe-user" style="margin-bottom: 8px; ">Add Extracuricullar to Student</a>
+          <a href="<?php echo base_url('transaction/extracuricullar-student/add'); ?>" class="btn btn-info" id="tambah-tipe-user" style="margin-bottom: 8px; ">Add Extracuricullar to Student</a>
           <?php 
             if ($this->session->flashdata('success')) {
               echo "<div class='alert alert-info'>".$this->session->flashdata('success')."</div>";
@@ -71,7 +71,7 @@ $('#table').DataTable({
     "serverSide": true,
     "order": [],
     "ajax":{
-      "url":"<?php echo base_url('/extracuricullar-student/index-data'); ?>",
+      "url":"<?php echo base_url('transaction//extracuricullar-student/index-data'); ?>",
       "type":"POST"
     },
     "columnDefs":[

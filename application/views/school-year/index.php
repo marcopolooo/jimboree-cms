@@ -16,7 +16,7 @@
   <section class="content">
       <div class="row">
         <div class="col-lg-12">
-          <a href="<?php echo base_url('schoolyear/add'); ?>" class="btn btn-info" id="tambah-tipe-user" style="margin-bottom: 8px; ">Add School</a>
+          <a href="<?php echo base_url('transaction/schoolyear/add'); ?>" class="btn btn-info" id="tambah-tipe-user" style="margin-bottom: 8px; ">Add School</a>
           <?php 
             if ($this->session->flashdata('success')) {
               echo "<div class='alert alert-info'>".$this->session->flashdata('success')."</div>";
@@ -73,7 +73,7 @@ $('#table').DataTable({
     "serverSide": true,
     "order": [],
     "ajax":{
-      "url":"<?php echo base_url('/schoolyear/index-data'); ?>",
+      "url":"<?php echo base_url('transaction//schoolyear/index-data'); ?>",
       "type":"POST"
     },
     "columnDefs":[

@@ -301,21 +301,31 @@
             </li>
           </ul>
         </li>
-        <li class="<?php echo (($this->uri->segment(1) == "schoolyear")) ? 'active' : '' ?>">
-          <a href="<?php echo base_url('schoolyear'); ?>">
-            <i class="fa fa-gear"></i> <span>School Year</span>
+        <li class="treeview <?php echo (($this->uri->segment(1) == "transaction")) ? 'active' : '' ?>">
+          <a href="#">
+            <i class="fa fa-bars"></i> <span>Transaction</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li class="<?php echo (($this->uri->segment(2) == "schoolyear")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('transaction/schoolyear'); ?>">
+                <i class="fa fa-gear"></i> <span>School Year</span>
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "extracuricullar-student")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('transaction/extracuricullar-student'); ?>">
+                <i class="fa fa-gear"></i> <span>Extracuricullar Student List</span>
+              </a>
+            </li>
+            <!-- <li class="<?php echo (($this->uri->segment(1) == "schoolyear")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('schoolyear'); ?>">
+                <i class="fa fa-gear"></i> <span>School Year</span>
+              </a>
+            </li> -->
+          </ul>
         </li>
-        <li class="<?php echo (($this->uri->segment(1) == "extracuricullar-student")) ? 'active' : '' ?>">
-          <a href="<?php echo base_url('extracuricullar-student'); ?>">
-            <i class="fa fa-gear"></i> <span>Extracuricullar Student List</span>
-          </a>
-        </li>
-        <!-- <li class="<?php echo (($this->uri->segment(1) == "schoolyear")) ? 'active' : '' ?>">
-          <a href="<?php echo base_url('schoolyear'); ?>">
-            <i class="fa fa-gear"></i> <span>School Year</span>
-          </a>
-        </li> -->
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -177,19 +177,19 @@ $route['master-data/news/destroy']['post'] = 'master-data/news/destroy';
 // MENU TRANSACTION ==============================================================================================================
 
 // SCHOOL YEAR
-$route['schoolyear'] = 'schoolyear';
-$route['schoolyear/index-data'] = 'schoolyear/indexData';
-$route['schoolyear/add']= 'schoolyear/add';
-$route['schoolyear/store']['post'] = 'schoolyear/store';
-$route['schoolyear/edit/(:num)'] = 'schoolyear/edit/$1';
-$route['schoolyear/update']['post'] = 'schoolyear/update';
-$route['schoolyear/destroy']['post'] = 'schoolyear/destroy';
+$route['transaction/schoolyear'] = 'schoolyear';
+$route['transaction/schoolyear/index-data'] = 'schoolyear/indexData';
+$route['transaction/schoolyear/add']= 'schoolyear/add';
+$route['transaction/schoolyear/store']['post'] = 'schoolyear/store';
+$route['transaction/schoolyear/edit/(:num)'] = 'schoolyear/edit/$1';
+$route['transaction/schoolyear/update']['post'] = 'schoolyear/update';
+$route['transaction/schoolyear/destroy']['post'] = 'schoolyear/destroy';
 
 // EKSKUL STUDENT
-$route['extracuricullar-student'] = 'extracuricullarstudent';
-$route['extracuricullar-student/index-data'] = 'extracuricullarstudent/indexData';
-$route['extracuricullar-student/add']= 'extracuricullarstudent/add';
-$route['extracuricullar-student/store']['post'] = 'extracuricullarstudent/store';
-$route['extracuricullar-student/edit/(:num)'] = 'extracuricullarstudent/edit/$1';
-$route['extracuricullar-student/update']['post'] = 'extracuricullarstudent/update';
-$route['extracuricullar-student/destroy']['post'] = 'extracuricullarstudent/destroy';
+$route['transaction/extracuricullar-student'] = 'extracuricullarstudent';
+$route['transaction/extracuricullar-student/index-data'] = 'extracuricullarstudent/indexData';
+$route['transaction/extracuricullar-student/add']= 'extracuricullarstudent/add';
+$route['transaction/extracuricullar-student/store']['post'] = 'extracuricullarstudent/store';
+$route['transaction/extracuricullar-student/edit/(:num)'] = 'extracuricullarstudent/edit/$1';
+$route['transaction/extracuricullar-student/update']['post'] = 'extracuricullarstudent/update';
+$route['transaction/extracuricullar-student/destroy']['post'] = 'extracuricullarstudent/destroy';

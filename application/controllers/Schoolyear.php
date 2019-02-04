@@ -102,7 +102,7 @@ class Schoolyear extends CI_Controller
         $data['is_active'] = $this->input->post('is_active');
         if ($data['from'] > $data['to']) {
             $this->session->set_flashdata('error', 'Failed insert! From year must bigger than to year.');
-            redirect('schoolyear/add');
+            redirect('transaction/schoolyear/add');
         }
 
         if($this->input->post('is_active') == ""){
@@ -114,10 +114,10 @@ class Schoolyear extends CI_Controller
         $result = $this->SchoolYearModel->store($data);
         if ($result) {
             $this->session->set_flashdata('success', 'Success insert!');
-            redirect('schoolyear');
+            redirect('transaction/schoolyear');
         } else{
             $this->session->set_flashdata('error', 'Failed insert!');
-            redirect('schoolyear');
+            redirect('transaction/schoolyear');
         }
     }
 
@@ -143,10 +143,10 @@ class Schoolyear extends CI_Controller
         $result = $this->SchoolYearModel->update($data);
         if ($result) {
             $this->session->set_flashdata('success', 'Success update!');
-            redirect('schoolyear');
+            redirect('transaction/schoolyear');
         } else{
             $this->session->set_flashdata('error', 'Failed update!');
-            redirect('schoolyear');
+            redirect('transaction/schoolyear');
         }
     }
 
