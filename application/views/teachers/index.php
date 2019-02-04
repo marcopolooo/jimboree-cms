@@ -35,6 +35,7 @@
                     <th>Teachers</th>
                     <th>Address</th>
                     <th>Telephone</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>

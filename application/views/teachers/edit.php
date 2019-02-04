@@ -18,8 +18,23 @@
             <div class="col-lg-12">
               <div class="box box-primary">
                 <!-- form start -->
-                <form role="form" action="<?php echo base_url('master-data/teachers/update'); ?>" method="post">
+                <form role="form" action="<?php echo base_url('master-data/teachers/update'); ?>" method="post" enctype="multipart/form-data">
                     <div class="box-body">
+                      <div class="form-group">
+                        <!-- image-preview-filename input [CUT FROM HERE]-->
+                        <label for="image" class="col-lg-2">Image</label>
+                        <div class="col-lg-10">
+                          <div class="input-group">
+                              <span class="input-group-btn">
+                                  <span class="btn btn-default btn-file">
+                                      Browse… <input type="file" id="imgInp" name="image">
+                                  </span>
+                              </span>
+                              <input type="text" name="input-news-image" value="<?php echo "http://localhost/jimboree-cms/" . explode("jimboree-cms/", $data[0]['image'])[1]; ?>" class="form-control" readonly>
+                          </div>
+                          <img id='img-upload' src="<?php echo base_url() . explode("jimboree-cms/", $data[0]['image'])[1]; ?>" />
+                        </div>
+                      </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="students">NPWP</label>
                         <div class="col-lg-10">
@@ -49,6 +64,12 @@
                         <label class="col-lg-2" for="nama_tengah">Nama Belakang</label>
                         <div class="col-lg-10">
                           <input type="text" class="form-control" id="nama_tengah" placeholder="Enter Nama Belakang" name="nama_belakang" value="<?php echo $data[0]['nama_belakang']; ?>" maxlength="45"><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-2" for="jabatan">Jabatan</label>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control" id="jabatan" placeholder="Enter jabatan" name="jabatan" maxlength="45" value="<?php echo $data[0]['jabatan']; ?>"><br>
                         </div>
                       </div>
                       <div class="form-group">
@@ -115,6 +136,14 @@
                           <input type="text" class="form-control" id="telephone" placeholder="Enter telephone" name="telephone" value="<?php echo $data[0]['telephone']; ?>" maxlength="45" required><br>
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label for="attachment" class="col-sm-2 control-label">Status Ditampilkan</label>
+                        <div class="col-sm-10">
+                            <div class="checkbox">
+                                <input type="checkbox" name="is_active" class="bootstrapswitch" id="is_active" data-size="normal" value="INACTIVE" data-on-text="Active" data-off-text="Inactive">
+                            </div>
+                        </div>
+                      </div>
                       <button type="submit" class="btn btn-primary" >Submit</button>
                       <a href="<?php echo base_url('master-data/teachers'); ?>" class="btn btn-danger">Cancel</a>
                     </div>
@@ -126,4 +155,55 @@
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script>
+    $(function() {
+        $(document).on('change', '.btn-file :file', function() {
+          var input = $(this),
+            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+          input.trigger('fileselect', [label]);
+        });
+
+        $('.btn-file :file').on('fileselect', function(event, label) {
+            
+            var input = $(this).parents('.input-group').find(':text'),
+                log = label;
+            
+            if( input.length ) {
+                input.val(log);
+            } else {
+                if( log ) alert(log);
+            }
+          
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('#img-upload').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function(){
+            readURL(this);
+        });
+
+        $(".bootstrapswitch").bootstrapSwitch();
+        $("#is_active").on('switchChange.bootstrapSwitch', function(event, state) {
+          if(state) {
+            $("#is_active").val("ACTIVE");
+          } else {
+            $("#is_active").val("INACTIVE");
+          }
+        });
+    });
+    </script>
     <?php $this->load->view('layouts/footer.php'); ?>
+    <?php 
+      if($data[0]['is_active'] == "ACTIVE"){
+        echo '<script> $("#is_active").bootstrapSwitch("state", true); $("#is_active").val("ACTIVE"); </script>';
+      }
+    ?>

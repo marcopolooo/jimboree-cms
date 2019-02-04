@@ -42,7 +42,6 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <!-- image-preview-filename input [CUT FROM HERE]-->
                         <label for="image" class="col-lg-2">Image</label>
                         <div class="col-lg-10">
                           <div class="input-group">

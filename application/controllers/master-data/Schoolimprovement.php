@@ -91,11 +91,6 @@ class Schoolimprovement extends CI_Controller
         if($this->input->post('is_active') == ""){
             $data['is_active'] = "INACTIVE";
         } else {
-            // $countActivated = $this->SchoolImprovementModel->getActivated();
-            // if($countActivated[0]['active'] >= 1){
-            //     $this->session->set_flashdata('error', 'Failed insert! Active article is limit of 3');
-            //     redirect(base_url('master-data/schoolimprovement/add'));
-            // }
             $data['is_active'] = $this->input->post('is_active');
         }
         

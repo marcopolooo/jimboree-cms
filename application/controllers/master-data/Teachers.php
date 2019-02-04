@@ -59,6 +59,11 @@ class Teachers extends CI_Controller
             $row[] = $l->nama_depan . " " . $l->nama_belakang;
             $row[] = $l->alamat;
             $row[] = $l->telephone;
+            if($l->is_active == "ACTIVE"){
+                $row[] = "<span class='label badge bg-green'>Activated</span>";
+            } else {
+                $row[] = "<span class='label badge bg-orange'>Deactivated</span>";
+            }
             $row[] =
             '<a class="btn btn-sm btn-primary" href="'. base_url("master-data/teachers/edit/".$l->peg_id) .'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
             <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="deleteItem('."'".$l->peg_id."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
@@ -95,14 +100,39 @@ class Teachers extends CI_Controller
         $data['alamat'] = $this->input->post('alamat');
         $data['telephone'] = $this->input->post('telephone');
         $data['email'] = $this->input->post('email');
+        $data['jabatan'] = $this->input->post('jabatan');
 
-        $result = $this->TeachersModel->store($data);
-        if ($result) {
-            $this->session->set_flashdata('success', 'Success insert!');
-            redirect('master-data/teachers');
-        } else{
-            $this->session->set_flashdata('error', 'Failed insert!');
-            redirect('master-data/teachers');
+        if($this->input->post('is_active') == ""){
+            $data['is_active'] = "INACTIVE";
+        } else {
+            $countActivated = $this->TeachersModel->getActivated();
+            if($countActivated[0]['active'] >= 3){
+                $this->session->set_flashdata('error', 'Failed insert! Active article is limit of 3');
+                redirect(base_url('master-data/teachers/add'));
+            }
+            $data['is_active'] = $this->input->post('is_active');
+        }
+        
+        $config = getConfigImage("teachers");
+        $this->load->library('upload', $config);
+        
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+            $this->session->set_flashdata('error', 'Failed insert! Because ' . $error['error']);
+            redirect(base_url('master-data/teachers'));
+        }
+        else
+        {
+            $data['image'] = array('upload_data' => $this->upload->data());
+            $result = $this->TeachersModel->store($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success insert!');
+                redirect('master-data/teachers');
+            } else{
+                $this->session->set_flashdata('error', 'Failed insert!');
+                redirect('master-data/teachers');
+            }
         }
     }
 
@@ -112,6 +142,7 @@ class Teachers extends CI_Controller
         // header('Content-Type: application/json');
         // echo json_encode( $result);
         // echo $result['data'][0];
+        // print_r($result['data']);die();
         $this->load->view('teachers/edit', $result);
     }
 
@@ -130,14 +161,40 @@ class Teachers extends CI_Controller
         $data['alamat'] = $this->input->post('alamat');
         $data['telephone'] = $this->input->post('telephone');
         $data['email'] = $this->input->post('email');
+        $data['jabatan'] = $this->input->post('jabatan');
+        if($this->input->post('is_active') == ""){
+            $data['is_active'] = "INACTIVE";
+        } else {
+            $data['is_active'] = $this->input->post('is_active');
+        }
 
-        $result = $this->TeachersModel->update($data);
-        if ($result) {
-            $this->session->set_flashdata('success', 'Success update!');
-            redirect('master-data/teachers');
-        } else{
-            $this->session->set_flashdata('error', 'Failed update!');
-            redirect('master-data/teachers');
+        $config = getConfigImage("teachers");
+        $this->load->library('upload', $config);
+        
+        if ( ! $this->upload->do_upload('image') )
+        {
+            $result = $this->TeachersModel->update($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success update!');
+                redirect('master-data/teachers');
+            } else{
+                $this->session->set_flashdata('error', 'Failed update!');
+                redirect('master-data/teachers');
+            }
+        }
+        else
+        {
+            $this->upload->do_upload('image');
+            $data['image'] = array('upload-data' => $this->upload->data());
+
+            $result = $this->TeachersModel->update($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success update!');
+                redirect('master-data/teachers');
+            } else{
+                $this->session->set_flashdata('error', 'Failed update!');
+                redirect('master-data/teachers');
+            }
         }
     }
 

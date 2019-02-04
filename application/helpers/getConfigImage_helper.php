@@ -17,7 +17,7 @@ if ( ! function_exists('uploadImage')){
         $folder = $yearFolder . "/" . $monthFolder . "/" . $dateFolder . "/";
 
         $config['upload_path']          = '././assets/uploads/articles/' . $folder;
-        $config['allowed_types']        = 'gif|jpg|png';
+        $config['allowed_types']        = 'gif|jpg|jpeg|png';
         $config['max_size']             = 10024;
         $config['override']             = true;
 
