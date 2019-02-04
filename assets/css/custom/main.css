@@ -2,6 +2,63 @@
     width: 140px;
 }
 
-input#study{
-    width: 30% !important;
+.ui-datepicker-calendar{
+    display: none;
+}​
+
+.skin-blue .main-header .navbar{
+    background-color: #e52f65 !important;
+}
+
+.skin-blue .main-header .logo{
+    background-color: #e52f65;
+}
+
+.skin-blue .sidebar-menu > li.active > a{
+    border-left-color: #e52f65;
+}
+
+.btn-info{
+    background-color: #e52f65;
+    border: none;
+}
+
+.btn-info:hover{
+    background-color: #e52f65 !important;
+}
+.btn-info:active{
+    background-color: #e52f65 !important;
+}
+
+
+
+/* IMAGE PREVIEW CSS */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload, #img-visi-image, #img-misi-image{
+    /* width: 200px; */
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.read-star{
+    color: red;
 }

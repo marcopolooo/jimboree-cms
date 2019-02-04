@@ -60,8 +60,8 @@ class School extends CI_Controller
             $row[] = $l->telephone;
             $row[] = $l->alamat;
             $row[] = $l->tanggal_pendirian;
-            $row[] = $l->visi;
-            $row[] = $l->misi;
+            // $row[] = $l->visi;
+            // $row[] = $l->misi;
             $row[] = $l->status_sekolah;
             $row[] = $l->akreditasi;
             $row[] = $l->kepala_sekolah;
@@ -92,32 +92,52 @@ class School extends CI_Controller
         $data = array();
         $data['id_sekolah'] = $this->input->post('id_sekolah');
         $data['name_school'] = $this->input->post('name_school');
-        $data['tanggal_pendirian'] = date('Y/m/d', strtotime($this->input->post('tanggal_pendirian')));
+        $data['tanggal_pendirian'] = date('Y-m-d', strtotime($this->input->post('tanggal_pendirian')));
         $data['status_sekolah'] = $this->input->post('status_sekolah');
         $data['akreditasi'] = $this->input->post('akreditasi');
         $data['sertifikasi'] = $this->input->post('sertifikasi');
         $data['kepala_sekolah'] = $this->input->post('kepala_sekolah');
         $data['alamat'] = $this->input->post('alamat');
         $data['visi'] = $this->input->post('visi');
+        $data['visi_2'] = $this->input->post('visi_2');
+        $data['visi_subtitle'] = $this->input->post('visi_subtitle');
         $data['misi'] = $this->input->post('misi');
+        $data['misi_2'] = $this->input->post('misi_2');
+        $data['misi_subtitle'] = $this->input->post('misi_subtitle');
         $data['motto'] = $this->input->post('motto');
         $data['file_url'] = $this->input->post('file_url');
-        $result = $this->SchoolModel->store($data);
-        if ($result) {
-            $this->session->set_flashdata('success', 'Success insert!');
-            redirect('master-data/school');
-        } else{
-            $this->session->set_flashdata('error', 'Failed insert!');
-            redirect('master-data/school');
+
+        $config = getConfigImage("school");
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('visi-image') && ! $this->upload->do_upload('misi-image') )
+        {
+            $error = array('error' => $this->upload->display_errors());
+            $this->session->set_flashdata('error', 'Failed insert! Because ' . $error['error']);
+            redirect(base_url('master-data/school'));
+        }
+        else
+        {
+            $this->upload->do_upload('visi-image');
+            $data['visi_image'] = array('upload-data' => $this->upload->data());
+            $this->upload->do_upload('misi-image');
+            $data['misi_image'] = array('upload-data' => $this->upload->data());
+
+            $result = $this->SchoolModel->store($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success insert!');
+                redirect('master-data/school');
+            } else{
+                $this->session->set_flashdata('error', 'Failed insert!');
+                redirect('master-data/school');
+            }
         }
     }
 
     public function edit($id){
         $result['data'] = $this->SchoolModel->getById($id);
         $result['school'] = $this->SchoolModel->get();
-        // header('Content-Type: application/json');
-        // echo json_encode( $result);
-        // echo $result['data'][0];
+
         $this->load->view('school/edit', $result);
     }
 
@@ -125,24 +145,63 @@ class School extends CI_Controller
         $data = array();
         $data['id_sekolah'] = $this->input->post('id_sekolah');
         $data['name_school'] = $this->input->post('name_school');
-        $data['tanggal_pendirian'] = date('Y/m/d', strtotime($this->input->post('tanggal_pendirian')));
+        $data['tanggal_pendirian'] = date('Y-m-d', strtotime($this->input->post('tanggal_pendirian')));
         $data['status_sekolah'] = $this->input->post('status_sekolah');
         $data['akreditasi'] = $this->input->post('akreditasi');
         $data['sertifikasi'] = $this->input->post('sertifikasi');
         $data['kepala_sekolah'] = $this->input->post('kepala_sekolah');
         $data['alamat'] = $this->input->post('alamat');
         $data['visi'] = $this->input->post('visi');
+        $data['visi_2'] = $this->input->post('visi_2');
+        $data['visi_subtitle'] = $this->input->post('visi_subtitle');
         $data['misi'] = $this->input->post('misi');
+        $data['misi_2'] = $this->input->post('misi_2');
+        $data['misi_subtitle'] = $this->input->post('misi_subtitle');
         $data['motto'] = $this->input->post('motto');
         $data['file_url'] = $this->input->post('file_url');
         
-        $result = $this->SchoolModel->update($data);
-        if ($result) {
-            $this->session->set_flashdata('success', 'Success update!');
-            redirect('master-data/school');
-        } else{
-            $this->session->set_flashdata('error', 'Failed update!');
-            redirect('master-data/school');
+        $config = getConfigImage("school");
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('visi-image') && ! $this->upload->do_upload('misi-image') )
+        {
+            // echo "IMAGE TIDAK DIUPLOAD 22NYA";die();
+            $result = $this->SchoolModel->update($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success update!');
+                redirect('master-data/school');
+            } else{
+                $this->session->set_flashdata('error', 'Failed update!');
+                redirect('master-data/school');
+            }
+            // $error = array('error' => $this->upload->display_errors());
+            // $this->session->set_flashdata('error', 'Failed insert! Because ' . $error['error']);
+            // redirect(base_url('master-data/school'));
+        }
+        else
+        {
+            // echo "IMAGE DIUPLOAD 22NYA";die();
+            if(! $this->upload->do_upload('visi-image') ){
+                $this->upload->do_upload('misi-image');
+                $data['misi_image'] = array('upload-data' => $this->upload->data());
+            } elseif (! $this->upload->do_upload('misi-image')) {
+                $this->upload->do_upload('visi-image');
+                $data['visi_image'] = array('upload-data' => $this->upload->data());
+            } else {
+                $this->upload->do_upload('misi-image');
+                $data['misi_image'] = array('upload-data' => $this->upload->data());
+                $this->upload->do_upload('visi-image');
+                $data['visi_image'] = array('upload-data' => $this->upload->data());
+            }
+
+            $result = $this->SchoolModel->update($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success update!');
+                redirect('master-data/school');
+            } else{
+                $this->session->set_flashdata('error', 'Failed update!');
+                redirect('master-data/school');
+            }
         }
     }
 

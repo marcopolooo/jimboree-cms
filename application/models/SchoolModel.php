@@ -20,7 +20,17 @@ class SchoolModel extends CI_Model
         $this->kepala_sekolah = $data['kepala_sekolah'];
         $this->alamat = $data['alamat'];
         $this->visi = $data['visi'];
+        $this->visi_2 = $data['visi_2'];
+        $this->visi_subtitle = $data['visi_subtitle'];
+        if(count($data['visi_image'])>0){
+            $this->visi_image = $data['visi_image']['upload-data']['full_path'];
+        }
         $this->misi = $data['misi'];
+        $this->misi_2 = $data['misi_2'];
+        $this->misi_subtitle = $data['misi_subtitle'];
+        if(count($data['misi_image'])>0){
+            $this->misi_image = $data['misi_image']['upload-data']['full_path'];
+        }
         $this->motto = $data['motto'];
         $this->file_url = $data['file_url'];
         $this->db->where('id_sekolah', $data['id_sekolah']);
@@ -38,7 +48,13 @@ class SchoolModel extends CI_Model
         $this->kepala_sekolah = $data['kepala_sekolah'];
         $this->alamat = $data['alamat'];
         $this->visi = $data['visi'];
+        $this->visi_2 = $data['visi_2'];
+        $this->visi_subtitle = $data['visi_subtitle'];
+        $this->visi_image = $data['visi_image']['upload-data']['full_path'];
         $this->misi = $data['misi'];
+        $this->misi_2 = $data['misi_2'];
+        $this->misi_subtitle = $data['misi_subtitle'];
+        $this->misi_image = $data['misi_image']['upload-data']['full_path'];
         $this->motto = $data['motto'];
         $this->file_url = $data['file_url'];
         $this->db->where('id_sekolah', $data['id_sekolah']);

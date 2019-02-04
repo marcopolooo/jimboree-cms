@@ -103,25 +103,7 @@ class Articles extends CI_Controller
         $data['articles_type'] = $this->input->post('articles_type');
         $data['desc'] = $this->input->post('desc');
 
-        $yearFolder = date('Y');
-        if(!is_dir('././assets/uploads/articles/' . $yearFolder)) {
-            mkdir('././assets/uploads/articles/' . $yearFolder, 0777);
-        }
-        $monthFolder = date('m');
-        if(!is_dir('././assets/uploads/articles/' . $yearFolder . "/" . $monthFolder)) {
-            mkdir('assets/uploads/articles/' . $yearFolder . "/" . $monthFolder, 0777);
-        }
-        $dateFolder = date('d');
-        if(!is_dir('././assets/uploads/articles/' . $yearFolder . "/" . $monthFolder . "/" . $dateFolder)) {
-            mkdir('assets/uploads/articles/' . $yearFolder . "/" . $monthFolder . "/" . $dateFolder, 0777);
-        }
-        $folder = $yearFolder . "/" . $monthFolder . "/" . $dateFolder . "/";
-
-        $config['upload_path']          = '././assets/uploads/articles/' . $folder;
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 10024;
-        $config['override']             = true;
-        
+        $config = getConfigImage("articles");
         $this->load->library('upload', $config);
         
         if ( ! $this->upload->do_upload('image'))
@@ -132,8 +114,8 @@ class Articles extends CI_Controller
         }
         else
         {
+            print_r($this->upload->data());die();
             $data['image'] = array('upload_data' => $this->upload->data());
-            // print_r($data);die();
             $result = $this->ArticlesModel->store($data);
             if ($result) {
                 $this->session->set_flashdata('success', 'Success input');
@@ -163,25 +145,7 @@ class Articles extends CI_Controller
         $data['articles_type'] = $this->input->post('articles_type');
         $data['desc'] = $this->input->post('desc');
 
-        $yearFolder = date('Y');
-        if(!is_dir('././assets/uploads/articles/' . $yearFolder)) {
-            mkdir('././assets/uploads/articles/' . $yearFolder, 0777);
-        }
-        $monthFolder = date('m');
-        if(!is_dir('././assets/uploads/articles/' . $yearFolder . "/" . $monthFolder)) {
-            mkdir('assets/uploads/articles/' . $yearFolder . "/" . $monthFolder, 0777);
-        }
-        $dateFolder = date('d');
-        if(!is_dir('././assets/uploads/articles/' . $yearFolder . "/" . $monthFolder . "/" . $dateFolder)) {
-            mkdir('assets/uploads/articles/' . $yearFolder . "/" . $monthFolder . "/" . $dateFolder, 0777);
-        }
-        $folder = $yearFolder . "/" . $monthFolder . "/" . $dateFolder . "/";
-
-        $config['upload_path']          = '././assets/uploads/articles/' . $folder;
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 10024;
-        $config['override']             = true;
-        
+        $config = getConfigImage("articles");
         $this->load->library('upload', $config);
         
         if ( ! $this->upload->do_upload('image'))

@@ -29,6 +29,7 @@ class ArticlesModel extends CI_Model
         $this->articles_type_id = $data['articles_type'];
         $this->desc = $data['desc'];
         $this->image = $data['image']['upload_data']['full_path'];
+        $this->created_at = date('Y-m-d H:i:s');
         return $this->db->insert('tm_articles', $this);
     }
 

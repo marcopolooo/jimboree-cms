@@ -54,6 +54,9 @@
 <script type="text/javascript" src="<?php echo base_url('assets/template/bower_components/bootstrap/js/transition.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/template/bower_components/bootstrap/js/collapse.js'); ?>"></script>
 <script src="<?php echo base_url('assets/template/bower_components/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/template/plugins/bootstrap-switch/bootstrap-switch.min.js'); ?>"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url('assets/template/plugins/iCheck/icheck.min.js'); ?>"></script>
 
 <script>
 	$(document).ready(function(){

@@ -30,6 +30,10 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css'); ?>">
   <!-- bootstrap datetimepicker -->
   <link rel="stylesheet" href="<?php echo base_url('assets/template/bower_components/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css'); ?>">
+  <!-- Plugins -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins/bootstrap-switch/bootstrap-switch.min.css'); ?>">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins/iCheck/all.css'); ?>">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -70,7 +74,7 @@
       <span class="logo-lg"><img src="<?php echo base_url('assets/img/logo.png'); ?>" alt=""></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
+    <nav class="navbar navbar-static-top" style="background-color: #e52f65 !important;">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
@@ -257,7 +261,7 @@
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "agama")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/agama'); ?>">
-                <i class="fa fa-gears"></i> Agama
+                <i class="fa fa-gears"></i> Religion
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "extracuricullar")) ? 'active' : '' ?>">
@@ -285,16 +289,33 @@
                 <i class="fa fa-gears"></i> School
               </a>
             </li>
+            <li class="<?php echo (($this->uri->segment(2) == "experience")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/experience'); ?>">
+                <i class="fa fa-gears"></i> Experience
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "news")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/news'); ?>">
+                <i class="fa fa-gear"></i> <span>News</span>
+              </a>
+            </li>
           </ul>
         </li>
-        <li>
-          <a href="pages/widgets.html">
-            <i class="fa fa-th"></i> <span>Widgets</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
+        <li class="<?php echo (($this->uri->segment(1) == "schoolyear")) ? 'active' : '' ?>">
+          <a href="<?php echo base_url('schoolyear'); ?>">
+            <i class="fa fa-gear"></i> <span>School Year</span>
           </a>
         </li>
+        <li class="<?php echo (($this->uri->segment(1) == "extracuricullar-student")) ? 'active' : '' ?>">
+          <a href="<?php echo base_url('extracuricullar-student'); ?>">
+            <i class="fa fa-gear"></i> <span>Extracuricullar Student List</span>
+          </a>
+        </li>
+        <!-- <li class="<?php echo (($this->uri->segment(1) == "schoolyear")) ? 'active' : '' ?>">
+          <a href="<?php echo base_url('schoolyear'); ?>">
+            <i class="fa fa-gear"></i> <span>School Year</span>
+          </a>
+        </li> -->
       </ul>
     </section>
     <!-- /.sidebar -->

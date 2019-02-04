@@ -75,11 +75,17 @@ class Subjects extends CI_Controller
     }
 
     public function add(){
-        $this->load->view('subjects/add');    
+        $class = $this->ClassModel->get();
+        $teacher = $this->TeachersModel->get();
+        $data['class'] = $class;
+        $data['teacher'] = $teacher;
+        $this->load->view('subjects/add', $data);
     }
 
     public function store(){
         $data['nama_mapel'] = $this->input->post('nama_mapel');
+        $data['class'] = $this->input->post('class');
+        $data['teacher'] = $this->input->post('teacher');
         $result = $this->SubjectsModel->store($data);
         if ($result) {
             $this->session->set_flashdata('success', 'Success insert!');
@@ -99,6 +105,8 @@ class Subjects extends CI_Controller
         $data = array();
         $data['id'] = $this->input->post('id');
         $data['nama_mapel'] = $this->input->post('nama_mapel');
+        $data['class'] = $this->input->post('class');
+        $data['teacher'] = $this->input->post('teacher');
         $result = $this->SubjectsModel->update($data);
         if ($result) {
             $this->session->set_flashdata('success', 'Success update!');

@@ -36,8 +36,8 @@
                     <th>Telephone</th>
                     <th>Alamat</th>
                     <th>Tanggal Pendirian</th>
-                    <th>Visi</th>
-                    <th>Misi</th>
+                    <!-- <th>Visi</th>
+                    <th>Misi</th> -->
                     <th>Status Sekolah</th>
                     <th>Akreditasi</th>
                     <th>Kepala Sekolah</th>
