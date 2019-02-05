@@ -301,7 +301,7 @@
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "classes-program")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/classesprogram'); ?>">
-                <i class="fa fa-gear"></i> <span>News</span>
+                <i class="fa fa-gear"></i> <span>Classes Program</span>
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "schoolimprovement")) ? 'active' : '' ?>">

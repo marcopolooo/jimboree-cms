@@ -1,6 +1,6 @@
 <?php 
 
-class ClassModel extends CI_Model
+class ClassesProgramModel extends CI_Model
 {
     public function __construct(){
         $this->load->database();
@@ -15,7 +15,7 @@ class ClassModel extends CI_Model
         $this->program = $data['program'];
         $this->desc = $data['desc'];
         if(isset($data['image'])){
-            $this->image = $data['image'];
+            $this->image = $data['image']['upload-data']['full_path'];
         }
         $this->db->where('id', $data['id']);
         return $this->db->update('tm_classes_program', $this);
@@ -24,9 +24,9 @@ class ClassModel extends CI_Model
     public function store($data){
         $this->program = $data['program'];
         $this->desc = $data['desc'];
-        $this->image = $data['image'];
+        $this->image = $data['image']['upload-data']['full_path'];
         $this->created_at = date('Y-m-d H:i:s');
-        return $this->db->insert('tm_classes_program', $data);
+        return $this->db->insert('tm_classes_program', $this);
     }
 
     public function getById($id){

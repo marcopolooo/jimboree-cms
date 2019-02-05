@@ -183,7 +183,7 @@ $route['master-data/schoolimprovement/edit/(:num)'] = 'master-data/schoolimprove
 $route['master-data/schoolimprovement/update']['post'] = 'master-data/schoolimprovement/update';
 $route['master-data/schoolimprovement/destroy']['post'] = 'master-data/schoolimprovement/destroy';
 
-// NEWS
+// CLASSES PROGRAM
 $route['master-data/classesprogram'] = 'master-data/classesprogram';
 $route['master-data/classesprogram/index-data'] = 'master-data/classesprogram/indexData';
 $route['master-data/classesprogram/add']= 'master-data/classesprogram/add';
