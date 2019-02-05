@@ -299,6 +299,11 @@
                 <i class="fa fa-gear"></i> <span>News</span>
               </a>
             </li>
+            <li class="<?php echo (($this->uri->segment(2) == "classes-program")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/classesprogram'); ?>">
+                <i class="fa fa-gear"></i> <span>News</span>
+              </a>
+            </li>
             <li class="<?php echo (($this->uri->segment(2) == "schoolimprovement")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/schoolimprovement'); ?>">
                 <i class="fa fa-gear"></i> <span>School Improvement</span>
@@ -314,6 +319,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li class="<?php echo (($this->uri->segment(2) == "testimoni")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('transaction/testimoni'); ?>">
+                <i class="fa fa-gear"></i> <span>Testimoni</span>
+              </a>
+            </li>
             <li class="<?php echo (($this->uri->segment(2) == "schoolyear")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('transaction/schoolyear'); ?>">
                 <i class="fa fa-gear"></i> <span>School Year</span>

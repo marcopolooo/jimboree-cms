@@ -18,23 +18,8 @@
             <div class="col-lg-12">
               <div class="box box-primary">
                 <!-- form start -->
-                <form role="form" action="<?php echo base_url('master-data/parents/update'); ?>" method="post" enctype="multipart/form-data">
+                <form role="form" action="<?php echo base_url('master-data/parents/update'); ?>" method="post">
                     <div class="box-body">
-                      <div class="form-group">
-                        <!-- image-preview-filename input [CUT FROM HERE]-->
-                        <label for="image" class="col-lg-2">Image</label>
-                        <div class="col-lg-10">
-                          <div class="input-group">
-                              <span class="input-group-btn">
-                                  <span class="btn btn-default btn-file">
-                                      Browse… <input type="file" id="imgInp" name="image">
-                                  </span>
-                              </span>
-                              <input type="text" name="input-news-image" value="<?php echo "http://localhost/jimboree-cms/" . explode("jimboree-cms/", $data[0]['image'])[1]; ?>" class="form-control" readonly>
-                          </div>
-                          <img id='img-upload' src="<?php echo base_url() . explode("jimboree-cms/", $data[0]['image'])[1]; ?>" />
-                        </div>
-                      </div>
                       <div class="form-group">
                         <label class="col-lg-2" for="class">Parents</label>
                         <div class="col-lg-10">
@@ -57,7 +42,7 @@
                       <div class="form-group">
                         <label class="col-lg-2" for="class">Agama</label>
                         <div class="col-lg-10">
-                        <select class="form-control" name="id_agama">
+                        <select class="form-control" name="agama">
                             <?php 
                               echo "<option value='". $data[0]['id_agama'] . "' selected>" . $data[0]['agama'] . "</option>";
                               foreach ($agama as $a ) {
@@ -72,10 +57,10 @@
                       <div class="form-group">
                         <label class="col-lg-2" for="class">Parents</label>
                         <div class="col-lg-10">
-                          <select class="form-control" name="role_parents">
-                          <option value="1" <?php if ($data[0]['role_parents'] == 1){echo 'selected';} ?>>Ayah</option>
-                            <option value="2" <?php if ($data[0]['role_parents'] == 2){ echo 'selected'; }?>>Ibu</option>
-                          </select><br>                       
+                        <select class="form-control" name="role_parents">
+                        <option value="1" <?php if ($data[0]['role_parents'] == 1){echo 'selected';} ?>>Ayah</option>
+                          <option value="2" <?php if ($data[0]['role_parents'] == 2){ echo 'selected'; }?>>Ibu</option>
+                        </select><br>                       
                         </div>
                       </div>
                       <button type="submit" class="btn btn-primary" >Submit</button>
@@ -89,41 +74,4 @@
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <script>
-    $(function() {
-      $(document).on('change', '.btn-file :file', function() {
-        var input = $(this),
-          label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-        input.trigger('fileselect', [label]);
-      });
-
-      $('.btn-file :file').on('fileselect', function(event, label) {
-          
-          var input = $(this).parents('.input-group').find(':text'),
-              log = label;
-          
-          if( input.length ) {
-              input.val(log);
-          } else {
-              if( log ) alert(log);
-          }
-        
-      });
-      function readURL(input) {
-          if (input.files && input.files[0]) {
-              var reader = new FileReader();
-              
-              reader.onload = function (e) {
-                  $('#img-upload').attr('src', e.target.result);
-              }
-              
-              reader.readAsDataURL(input.files[0]);
-          }
-      }
-
-      $("#imgInp").change(function(){
-          readURL(this);
-      });
-    });
-    </script>
     <?php $this->load->view('layouts/footer.php'); ?>

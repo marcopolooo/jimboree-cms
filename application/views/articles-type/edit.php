@@ -34,6 +34,21 @@
                           <input type="text" class="form-control" id="desc" placeholder="Enter Articles Type" name="desc" required value="<?php echo $data[0]['desc']?>"><br>
                         </div>
                       </div>
+                      <div class="form-group">
+                        <!-- image-preview-filename input [CUT FROM HERE]-->
+                        <label for="image" class="col-lg-2">Image</label>
+                        <div class="col-lg-10">
+                          <div class="input-group">
+                              <span class="input-group-btn">
+                                  <span class="btn btn-default btn-file">
+                                      Browse… <input type="file" id="imgInp">
+                                  </span>
+                              </span>
+                              <input type="text" class="form-control" name="input-image" value="<?php echo base_url() . explode("jimboree-cms/", $data[0]['image'])[1]; ?>" readonly>
+                          </div>
+                          <img id='img-upload' src="<?php echo base_url() . explode("jimboree-cms/", $data[0]['image'])[1]; ?>"/>
+                        </div>
+                      </div>
                       <button type="submit" class="btn btn-primary" >Submit</button>
                       <a href="<?php echo base_url('master-data/articles-type'); ?>" class="btn btn-danger">Cancel</a>
                     </div>

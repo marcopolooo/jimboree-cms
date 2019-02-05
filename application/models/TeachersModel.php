@@ -28,6 +28,9 @@ class TeachersModel extends CI_Model
         $this->telephone = $data['telephone'];
         $this->email = $data['email'];
         $this->jabatan = $data['jabatan'];
+        $this->facebook = $data['facebook'];
+        $this->twitter = $data['twitter'];
+        $this->instagram = $data['instagram'];
         $this->is_active = $data['is_active'];
         $this->db->where('peg_id', $data['peg_id']);
 
@@ -49,6 +52,9 @@ class TeachersModel extends CI_Model
         $this->telephone = $data['telephone'];
         $this->email = $data['email'];
         $this->jabatan = $data['jabatan'];
+        $this->facebook = $data['facebook'];
+        $this->twitter = $data['twitter'];
+        $this->instagram = $data['instagram'];
         $this->is_active = $data['is_active'];
         $this->db->where('peg_id', $data['peg_id']);
 
@@ -56,7 +62,7 @@ class TeachersModel extends CI_Model
     }
 
     public function getById($id){
-        $this->db->select('peg_id, image, npwp, nama_panggilan, nama_depan, nama_tengah, nama_belakang, tempat, tanggal_lahir, tm_teachers.id_agama, jenis_kelamin, jabatan, is_active, nama_agama AS agama, alamat, telephone, email');
+        $this->db->select('peg_id, image, npwp, nama_panggilan, nama_depan, nama_tengah, nama_belakang, tempat, tanggal_lahir, tm_teachers.id_agama, jenis_kelamin, jabatan, is_active, facebook, twitter, instagram, nama_agama AS agama, alamat, telephone, email');
         $this->db->from('tm_teachers');
         $this->db->join('tm_agama', 'tm_agama.id_agama = tm_teachers.id_agama');
         $this->db->order_by('peg_id', 'desc');

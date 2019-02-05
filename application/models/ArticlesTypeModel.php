@@ -13,6 +13,10 @@ class ArticlesTypeModel extends CI_Model
     public function update($data){
         $this->articles_type = $data['articles_type'];
         $this->desc = $data['desc'];
+        $this->created_at = date('Y-m-d H:i:s');
+        if(isset($data['image'])){
+            $this->image = $data['image']['upload-data']['full_path'];
+        }
         $this->db->where('id', $data['id']);
         return $this->db->update('tm_articles_type', $this);
     }
@@ -20,7 +24,9 @@ class ArticlesTypeModel extends CI_Model
     public function store($data){
         $this->articles_type = $data['articles_type'];
         $this->desc = $data['desc'];
-        return $this->db->insert('tm_articles_type', $data);
+        $this->image = $data['image']['upload-data']['full_path'];
+        $this->created_at = date('Y-m-d H:i:s');
+        return $this->db->insert('tm_articles_type', $this);
     }
 
     public function getById($id){

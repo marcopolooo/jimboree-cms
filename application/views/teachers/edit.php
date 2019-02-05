@@ -16,6 +16,15 @@
       <section class="content">
           <div class="row">
             <div class="col-lg-12">
+              <?php 
+                if ($this->session->flashdata('success')) {
+                  echo "<div class='alert alert-info'>".$this->session->flashdata('success')."</div>";
+                }
+
+                if ($this->session->flashdata('error')) {
+                  echo "<div class='alert alert-danger'>".$this->session->flashdata('error')."</div>";
+                }
+              ?>
               <div class="box box-primary">
                 <!-- form start -->
                 <form role="form" action="<?php echo base_url('master-data/teachers/update'); ?>" method="post" enctype="multipart/form-data">
@@ -70,6 +79,24 @@
                         <label class="col-lg-2" for="jabatan">Jabatan</label>
                         <div class="col-lg-10">
                           <input type="text" class="form-control" id="jabatan" placeholder="Enter jabatan" name="jabatan" maxlength="45" value="<?php echo $data[0]['jabatan']; ?>"><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-2" for="jabatan">Facebook</label>
+                        <div class="col-lg-10">
+                          <input type="url" class="form-control" id="facebook" placeholder="Enter Facebook" name="facebook" maxlength="45" value="<?php echo $data[0]['facebook']; ?>"><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-2" for="jabatan">Instagram</label>
+                        <div class="col-lg-10">
+                          <input type="url" class="form-control" id="instagram" placeholder="Enter Instagram" name="instagram" maxlength="45" value="<?php echo $data[0]['instagram']; ?>"><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-2" for="jabatan">Twitter</label>
+                        <div class="col-lg-10">
+                          <input type="url" class="form-control" id="twitter" placeholder="Enter Twitter" name="twitter" maxlength="45" value="<?php echo $data[0]['twitter']; ?>"><br>
                         </div>
                       </div>
                       <div class="form-group">

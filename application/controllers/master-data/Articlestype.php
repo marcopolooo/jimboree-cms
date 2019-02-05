@@ -83,13 +83,26 @@ class Articlestype extends CI_Controller
         $data['articles_type'] = $this->input->post('articles_type');
         $data['desc'] = $this->input->post('desc');
 
-        $result = $this->ArticlesTypeModel->store($data);
-        if ($result) {
-            $this->session->set_flashdata('success', 'Success input');
+        $config = getConfigImage("articles-type");
+        $this->load->library('upload', $config);
+        
+        if ( ! $this->upload->do_upload('images'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+            $this->session->set_flashdata('error', 'Failed insert! Because ' . $error['error']);
             redirect(base_url('master-data/articles-type'));
-        } else{
-            $this->session->set_flashdata('error', 'Failed insert!');
-            redirect(base_url('master-data/articles-type'));
+        }
+        else
+        {
+            $data['image'] = array('upload-data' => $this->upload->data());
+            $result = $this->ArticlesTypeModel->store($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success input');
+                redirect(base_url('master-data/articles-type'));
+            } else{
+                $this->session->set_flashdata('error', 'Failed insert!');
+                redirect(base_url('master-data/articles-type'));
+            }
         }
     }
 
@@ -104,13 +117,33 @@ class Articlestype extends CI_Controller
         $data['articles_type'] = $this->input->post('articles_type');
         $data['desc'] = $this->input->post('desc');
 
-        $result = $this->ArticlesTypeModel->update($data);
-        if ($result) {
-            $this->session->set_flashdata('success', 'Success Update!');
-            redirect(base_url('master-data/articles-type'));
-        } else{
-            $this->session->set_flashdata('error', 'Failed update!');
-            redirect(base_url('master-data/articles-type'));
+        $config = getConfigImage("article-type");
+        $this->load->library('upload', $config);
+        
+        if ( ! $this->upload->do_upload('image') )
+        {
+            $result = $this->ArticlesTypeModel->update($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success Update!');
+                redirect(base_url('master-data/articles-type'));
+            } else{
+                $this->session->set_flashdata('error', 'Failed update!');
+                redirect(base_url('master-data/articles-type'));
+            }
+        }
+        else
+        {
+            $this->upload->do_upload('image');
+            $data['image'] = array('upload-data' => $this->upload->data());
+
+            $result = $this->ArticlesTypeModel->update($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success Update!');
+                redirect(base_url('master-data/articles-type'));
+            } else{
+                $this->session->set_flashdata('error', 'Failed update!');
+                redirect(base_url('master-data/articles-type'));
+            }
         }
     }
 

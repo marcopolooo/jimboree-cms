@@ -18,7 +18,7 @@
             <div class="col-lg-12">
               <div class="box box-primary">
                 <!-- form start -->
-                <form role="form" action="<?php echo base_url('master-data/articles-type/store'); ?>" method="post">
+                <form role="form" action="<?php echo base_url('master-data/articles-type/store'); ?>" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                       <div class="form-group">
                         <label class="col-lg-2" for="article_type">Articles Type</label>
@@ -39,7 +39,7 @@
                           <div class="input-group">
                               <span class="input-group-btn">
                                   <span class="btn btn-default btn-file">
-                                      Browse… <input type="file" id="imgInp">
+                                      Browse… <input type="file" id="imgInp" name="images">
                                   </span>
                               </span>
                               <input type="text" class="form-control" readonly>

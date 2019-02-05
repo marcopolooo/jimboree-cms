@@ -16,6 +16,15 @@
       <section class="content">
           <div class="row">
             <div class="col-lg-12">
+              <?php 
+                if ($this->session->flashdata('success')) {
+                  echo "<div class='alert alert-info'>".$this->session->flashdata('success')."</div>";
+                }
+
+                if ($this->session->flashdata('error')) {
+                  echo "<div class='alert alert-danger'>".$this->session->flashdata('error')."</div>";
+                }
+              ?>
               <div class="box box-primary">
                 <!-- form start -->
                 <form role="form" action="<?php echo base_url('master-data/teachers/store'); ?>" method="post" enctype="multipart/form-data">
@@ -73,6 +82,24 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="col-lg-2" for="jabatan">Facebook</label>
+                        <div class="col-lg-10">
+                          <input type="url" class="form-control" id="facebook" placeholder="Enter Facebook" name="facebook" maxlength="45"><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-2" for="jabatan">Instagram</label>
+                        <div class="col-lg-10">
+                          <input type="url" class="form-control" id="instagram" placeholder="Enter Instagram" name="instagram" maxlength="45"><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-2" for="jabatan">Twitter</label>
+                        <div class="col-lg-10">
+                          <input type="url" class="form-control" id="twitter" placeholder="Enter Twitter" name="twitter" maxlength="45"><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="col-lg-2" for="tempat">Tempat Lahir</label>
                         <div class="col-lg-10">
                           <input type="text" class="form-control" id="tempat" placeholder="Enter Tempat Lahir" name="tempat" maxlength="45" required><br>
@@ -123,7 +150,7 @@
                       <div class="form-group">
                         <label class="col-lg-2" for="telephone">Telephone</label>
                         <div class="col-lg-10">
-                          <input type="text" class="form-control" id="telephone" placeholder="Enter telephone" name="telephone" maxlength="45" required><br>
+                          <input type="text" class="form-control" id="telephone" placeholder="Enter telephone" name="telephone" maxlength="15" required><br>
                         </div>
                       </div>
                       <div class="form-group">

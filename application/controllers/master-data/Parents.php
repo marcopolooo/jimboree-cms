@@ -86,14 +86,29 @@ class Parents extends CI_Controller
         $data['nama'] = $this->input->post('nama');
         $data['id_agama'] = $this->input->post('id_agama');
         $data['alamat'] = $this->input->post('alamat');
+        $data['telephone'] = $this->input->post('telephone');
         $data['role_parents'] = $this->input->post('role_parents');
-        $result = $this->ParentsModel->store($data);
-        if ($result) {
-            $this->session->set_flashdata('success', 'Success insert!');
-            redirect('master-data/parents');
-        } else{
-            $this->session->set_flashdata('error', 'Failed insert!');
-            redirect('master-data/parents');
+        
+        $config = getConfigImage("parents");
+        $this->load->library('upload', $config);
+        
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+            $this->session->set_flashdata('error', 'Failed insert! Because ' . $error['error']);
+            redirect(base_url('master-data/parents'));
+        }
+        else
+        {
+            $data['image'] = array('upload-data' => $this->upload->data());
+            $result = $this->ParentsModel->store($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success insert!');
+                redirect('master-data/parents');
+            } else{
+                $this->session->set_flashdata('error', 'Failed insert!');
+                redirect('master-data/parents');
+            }
         }
     }
 
@@ -111,13 +126,34 @@ class Parents extends CI_Controller
         $data['alamat'] = $this->input->post('alamat');
         $data['telephone'] = $this->input->post('telephone');
         $data['role_parents'] = $this->input->post('role_parents');
-        $result = $this->ParentsModel->update($data);
-        if ($result) {
-            $this->session->set_flashdata('success', 'Success update!');
-            redirect('master-data/parents');
-        } else{
-            $this->session->set_flashdata('error', 'Failed update!');
-            redirect('master-data/parents');
+
+        $config = getConfigImage("parents");
+        $this->load->library('upload', $config);
+        
+        if ( ! $this->upload->do_upload('image') )
+        {
+            $result = $this->ParentsModel->update($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success update!');
+                redirect('master-data/parents');
+            } else{
+                $this->session->set_flashdata('error', 'Failed update!');
+                redirect('master-data/parents');
+            }
+        }
+        else
+        {
+            $this->upload->do_upload('image');
+            $data['image'] = array('upload-data' => $this->upload->data());
+
+            $result = $this->ParentsModel->update($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success update!');
+                redirect('master-data/parents');
+            } else{
+                $this->session->set_flashdata('error', 'Failed update!');
+                redirect('master-data/parents');
+            }
         }
     }
 

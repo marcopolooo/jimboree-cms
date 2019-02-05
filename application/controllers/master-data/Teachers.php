@@ -101,14 +101,17 @@ class Teachers extends CI_Controller
         $data['telephone'] = $this->input->post('telephone');
         $data['email'] = $this->input->post('email');
         $data['jabatan'] = $this->input->post('jabatan');
+        $data['facebook'] = $this->input->post('facebook');
+        $data['twitter'] = $this->input->post('twitter');
+        $data['instagram'] = $this->input->post('instagram');
 
         if($this->input->post('is_active') == ""){
             $data['is_active'] = "INACTIVE";
         } else {
             $countActivated = $this->TeachersModel->getActivated();
-            if($countActivated[0]['active'] >= 3){
-                $this->session->set_flashdata('error', 'Failed insert! Active article is limit of 3');
-                redirect(base_url('master-data/teachers/add'));
+            if($countActivated[0]['active'] >= 4){
+                $this->session->set_flashdata('error', 'Failed insert! Active article is limit of 4');
+                redirect(base_url('master-data/teachers'));
             }
             $data['is_active'] = $this->input->post('is_active');
         }
@@ -162,9 +165,18 @@ class Teachers extends CI_Controller
         $data['telephone'] = $this->input->post('telephone');
         $data['email'] = $this->input->post('email');
         $data['jabatan'] = $this->input->post('jabatan');
+        $data['facebook'] = $this->input->post('facebook');
+        $data['twitter'] = $this->input->post('twitter');
+        $data['instagram'] = $this->input->post('instagram');
+        
         if($this->input->post('is_active') == ""){
             $data['is_active'] = "INACTIVE";
         } else {
+            $countActivated = $this->TeachersModel->getActivated();
+            if($countActivated[0]['active'] > 4){
+                $this->session->set_flashdata('error', 'Failed insert! Active article is limit of 4');
+                redirect(base_url('master-data/teachers'));
+            }
             $data['is_active'] = $this->input->post('is_active');
         }
 

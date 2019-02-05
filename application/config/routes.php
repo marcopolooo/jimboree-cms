@@ -183,22 +183,40 @@ $route['master-data/schoolimprovement/edit/(:num)'] = 'master-data/schoolimprove
 $route['master-data/schoolimprovement/update']['post'] = 'master-data/schoolimprovement/update';
 $route['master-data/schoolimprovement/destroy']['post'] = 'master-data/schoolimprovement/destroy';
 
+// NEWS
+$route['master-data/classesprogram'] = 'master-data/classesprogram';
+$route['master-data/classesprogram/index-data'] = 'master-data/classesprogram/indexData';
+$route['master-data/classesprogram/add']= 'master-data/classesprogram/add';
+$route['master-data/classesprogram/store']['post'] = 'master-data/classesprogram/store';
+$route['master-data/classesprogram/edit/(:num)'] = 'master-data/classesprogram/edit/$1';
+$route['master-data/classesprogram/update']['post'] = 'master-data/classesprogram/update';
+$route['master-data/classesprogram/destroy']['post'] = 'master-data/classesprogram/destroy';
+
 // MENU TRANSACTION ==============================================================================================================
 
 // SCHOOL YEAR
-$route['transaction/schoolyear'] = 'schoolyear';
-$route['transaction/schoolyear/index-data'] = 'schoolyear/indexData';
-$route['transaction/schoolyear/add']= 'schoolyear/add';
-$route['transaction/schoolyear/store']['post'] = 'schoolyear/store';
-$route['transaction/schoolyear/edit/(:num)'] = 'schoolyear/edit/$1';
-$route['transaction/schoolyear/update']['post'] = 'schoolyear/update';
-$route['transaction/schoolyear/destroy']['post'] = 'schoolyear/destroy';
+$route['transaction/schoolyear'] = 'transaction/schoolyear';
+$route['transaction/schoolyear/index-data'] = 'transaction/schoolyear/indexData';
+$route['transaction/schoolyear/add']= 'transaction/schoolyear/add';
+$route['transaction/schoolyear/store']['post'] = 'transaction/schoolyear/store';
+$route['transaction/schoolyear/edit/(:num)'] = 'transaction/schoolyear/edit/$1';
+$route['transaction/schoolyear/update']['post'] = 'transaction/schoolyear/update';
+$route['transaction/schoolyear/destroy']['post'] = 'transaction/schoolyear/destroy';
 
 // EKSKUL STUDENT
-$route['transaction/extracuricullar-student'] = 'extracuricullarstudent';
-$route['transaction/extracuricullar-student/index-data'] = 'extracuricullarstudent/indexData';
-$route['transaction/extracuricullar-student/add']= 'extracuricullarstudent/add';
-$route['transaction/extracuricullar-student/store']['post'] = 'extracuricullarstudent/store';
-$route['transaction/extracuricullar-student/edit/(:num)'] = 'extracuricullarstudent/edit/$1';
-$route['transaction/extracuricullar-student/update']['post'] = 'extracuricullarstudent/update';
-$route['transaction/extracuricullar-student/destroy']['post'] = 'extracuricullarstudent/destroy';
+$route['transaction/extracuricullar-student'] = 'transaction/extracuricullarstudent';
+$route['transaction/extracuricullar-student/index-data'] = 'transaction/extracuricullarstudent/indexData';
+$route['transaction/extracuricullar-student/add']= 'transaction/extracuricullarstudent/add';
+$route['transaction/extracuricullar-student/store']['post'] = 'transaction/extracuricullarstudent/store';
+$route['transaction/extracuricullar-student/edit/(:num)'] = 'transaction/extracuricullarstudent/edit/$1';
+$route['transaction/extracuricullar-student/update']['post'] = 'transaction/extracuricullarstudent/update';
+$route['transaction/extracuricullar-student/destroy']['post'] = 'transaction/extracuricullarstudent/destroy';
+
+// TESTIMONI
+$route['transaction/testimoni'] = 'transaction/testimoni';
+$route['transaction/testimoni/index-data'] = 'transaction/testimoni/indexData';
+$route['transaction/testimoni/add']= 'transaction/testimoni/add';
+$route['transaction/testimoni/store']['post'] = 'transaction/testimoni/store';
+$route['transaction/testimoni/edit/(:num)'] = 'transaction/testimoni/edit/$1';
+$route['transaction/testimoni/update']['post'] = 'transaction/testimoni/update';
+$route['transaction/testimoni/destroy']['post'] = 'transaction/testimoni/destroy';
