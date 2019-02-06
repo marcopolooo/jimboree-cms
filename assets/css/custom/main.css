@@ -55,7 +55,7 @@
 
 #img-upload, #img-visi-image, #img-misi-image{
     /* width: 200px; */
-    height: 200px;
+    max-height: 200px;
     margin-bottom: 20px;
 }
 

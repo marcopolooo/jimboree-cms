@@ -150,12 +150,14 @@ $model = array(
 			'SchoolModel',
 			'ArticlesTypeModel',
 			'ArticlesModel',
+			'AboutUsModel',
 			'SchoolYearModel',
 			'ExperienceModel',
 			'NewsModel',
 			'SchoolImprovementModel',
 			'TestimoniModel',
-			'ClassesProgramModel'
+			'ClassesProgramModel',
+			'OtherServiceModel'
 		);
 				
 $autoload['model'] = $model;

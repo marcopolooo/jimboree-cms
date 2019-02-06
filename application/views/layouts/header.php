@@ -244,6 +244,11 @@
                 <i class="fa fa-graduation-cap"></i> Score Type 
               </a>
             </li>
+            <li class="<?php echo (($this->uri->segment(2) == "about-us")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/about-us'); ?>">
+                <i class="fa fa-file"></i> About Us
+              </a>
+            </li>
             <li class="<?php echo (($this->uri->segment(2) == "articles")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/articles'); ?>">
                 <i class="fa fa-file"></i> Article
@@ -254,44 +259,29 @@
                 <i class="fa fa-file"></i> Article Type 
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "teachers")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/teachers'); ?>">
-                <i class="fa fa-gears"></i> Teachers
-              </a>
-            </li>
-            <li class="<?php echo (($this->uri->segment(2) == "agama")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/agama'); ?>">
-                <i class="fa fa-gears"></i> Religion
-              </a>
-            </li>
-            <li class="<?php echo (($this->uri->segment(2) == "extracuricullar")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/extracuricullar'); ?>">
-                <i class="fa fa-gears"></i> Extracuricullar
-              </a>
-            </li>
-            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/roles'); ?>">
-                <i class="fa fa-gears"></i> Roles 
+            <li class="<?php echo (($this->uri->segment(2) == "classes-program")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/classesprogram'); ?>">
+                <i class="fa fa-gear"></i> <span>Classes Program</span>
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "events")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/events'); ?>">
-                <i class="fa fa-gears"></i> Events 
+                <i class="fa fa-gear"></i> Events 
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "events-type")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/events-type'); ?>">
-                <i class="fa fa-gears"></i> Events Type
-              </a>
-            </li>
-            <li class="<?php echo (($this->uri->segment(2) == "school")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/school'); ?>">
-                <i class="fa fa-gears"></i> School
+                <i class="fa fa-gear"></i> Events Type
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "experience")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/experience'); ?>">
-                <i class="fa fa-gears"></i> Experience
+                <i class="fa fa-gear"></i> Experience
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "extracuricullar")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/extracuricullar'); ?>">
+                <i class="fa fa-gear"></i> Extracuricullar
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "news")) ? 'active' : '' ?>">
@@ -299,14 +289,34 @@
                 <i class="fa fa-gear"></i> <span>News</span>
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "classes-program")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('master-data/classesprogram'); ?>">
-                <i class="fa fa-gear"></i> <span>Classes Program</span>
+            <li class="<?php echo (($this->uri->segment(2) == "otherservice")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/otherservice'); ?>">
+                <i class="fa fa-gear"></i> Other Service
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "agama")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/agama'); ?>">
+                <i class="fa fa-gear"></i> Religion
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "roles")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/roles'); ?>">
+                <i class="fa fa-gear"></i> Roles 
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "school")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/school'); ?>">
+                <i class="fa fa-gear"></i> School
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "schoolimprovement")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('master-data/schoolimprovement'); ?>">
                 <i class="fa fa-gear"></i> <span>School Improvement</span>
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "teachers")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('master-data/teachers'); ?>">
+                <i class="fa fa-gear"></i> Teachers
               </a>
             </li>
           </ul>

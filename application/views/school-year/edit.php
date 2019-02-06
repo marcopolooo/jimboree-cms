@@ -105,9 +105,9 @@
       });
     });
   </script>
+  <?php $this->load->view('layouts/footer.php'); ?>
   <?php 
     if($data[0]['is_active'] == "ACTIVE"){
-      echo '<script> $("#is_active").bootstrapSwitch("state", true); </script>';
+      echo '<script> $("#is_active").bootstrapSwitch("state", true); $("#is_active").val("ACTIVE"); </script>';
     }
   ?>
-  <?php $this->load->view('layouts/footer.php'); ?>

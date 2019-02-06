@@ -192,6 +192,24 @@ $route['master-data/classesprogram/edit/(:num)'] = 'master-data/classesprogram/e
 $route['master-data/classesprogram/update']['post'] = 'master-data/classesprogram/update';
 $route['master-data/classesprogram/destroy']['post'] = 'master-data/classesprogram/destroy';
 
+// OTHER SERVICE
+$route['master-data/otherservice'] = 'master-data/otherservice';
+$route['master-data/otherservice/index-data'] = 'master-data/otherservice/indexData';
+$route['master-data/otherservice/add']= 'master-data/otherservice/add';
+$route['master-data/otherservice/store']['post'] = 'master-data/otherservice/store';
+$route['master-data/otherservice/edit/(:num)'] = 'master-data/otherservice/edit/$1';
+$route['master-data/otherservice/update']['post'] = 'master-data/otherservice/update';
+$route['master-data/otherservice/destroy']['post'] = 'master-data/otherservice/destroy';
+
+// ABOUT US
+$route['master-data/about-us'] = 'master-data/aboutus';
+$route['master-data/about-us/index-data'] = 'master-data/aboutus/indexData';
+$route['master-data/about-us/add']= 'master-data/aboutus/add';
+$route['master-data/about-us/store']['post'] = 'master-data/aboutus/store';
+$route['master-data/about-us/edit/(:num)'] = 'master-data/aboutus/edit/$1';
+$route['master-data/about-us/update']['post'] = 'master-data/aboutus/update';
+$route['master-data/about-us/destroy']['post'] = 'master-data/aboutus/destroy';
+
 // MENU TRANSACTION ==============================================================================================================
 
 // SCHOOL YEAR
