@@ -1,7 +1,7 @@
 <?php 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class ClassesProgram extends CI_Controller
+class Classesprogram extends CI_Controller
 {
     private $table = 'tm_classes_program';
     private $column_order = array(null, 'program', 'desc'); //set column field database for datatable orderable
