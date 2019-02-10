@@ -334,6 +334,11 @@
                 <i class="fa fa-gear"></i> <span>Extracuricullar Student List</span>
               </a>
             </li>
+            <li class="<?php echo (($this->uri->segment(2) == "score")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('transaction/score'); ?>">
+                <i class="fa fa-gear"></i> <span>Score</span>
+              </a>
+            </li>
             <li class="<?php echo (($this->uri->segment(2) == "schedule")) ? 'active' : '' ?>">
               <a href="<?php echo base_url('transaction/schedule'); ?>">
                 <i class="fa fa-gear"></i> <span>Schedule</span>

@@ -239,7 +239,7 @@ $route['transaction/testimoni/edit/(:num)'] = 'transaction/testimoni/edit/$1';
 $route['transaction/testimoni/update']['post'] = 'transaction/testimoni/update';
 $route['transaction/testimoni/destroy']['post'] = 'transaction/testimoni/destroy';
 
-// Schedule
+// SCHEDULE
 $route['transaction/schedule'] = 'transaction/schedule';
 $route['transaction/schedule/index-data'] = 'transaction/schedule/indexData';
 $route['transaction/schedule/add']= 'transaction/schedule/add';
@@ -247,3 +247,12 @@ $route['transaction/schedule/store']['post'] = 'transaction/schedule/store';
 $route['transaction/schedule/edit/(:num)'] = 'transaction/schedule/edit/$1';
 $route['transaction/schedule/update']['post'] = 'transaction/schedule/update';
 $route['transaction/schedule/destroy']['post'] = 'transaction/schedule/destroy';
+
+// SCORE
+$route['transaction/score'] = 'transaction/score';
+$route['transaction/score/index-data'] = 'transaction/score/indexData';
+$route['transaction/score/add']= 'transaction/score/add';
+$route['transaction/score/store']['post'] = 'transaction/score/store';
+$route['transaction/score/edit/(:num)'] = 'transaction/score/edit/$1';
+$route['transaction/score/update']['post'] = 'transaction/score/update';
+$route['transaction/score/destroy']['post'] = 'transaction/score/destroy';
