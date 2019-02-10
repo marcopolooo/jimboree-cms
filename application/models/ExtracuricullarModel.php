@@ -12,13 +12,17 @@ class ExtracuricullarModel extends CI_Model
 
     public function update($data){
         $this->jenis_extracuricullar = $data['jenis_extracuricullar'];
+        if(count($data['image'])>0){
+            $this->icon = $data['image']['upload-data']['full_path'];
+        }
         $this->db->where('id', $data['id']);
         return $this->db->update('tm_extracuricullar', $this);
     }
 
     public function store($data){
         $this->jenis_extracuricullar = $data['jenis_extracuricullar'];
-        return $this->db->insert('tm_extracuricullar', $data);
+        $this->icon = $data['image']['upload-data']['full_path'];
+        return $this->db->insert('tm_extracuricullar', $this);
     }
 
     public function getById($id){

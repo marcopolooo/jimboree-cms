@@ -7,7 +7,7 @@ class ClassModel extends CI_Model
     }
 
     public function get(){
-        $this->db->order_by('id_class', 'desc');
+        $this->db->order_by('nama_ruang_kelas', 'asc');
         return $this->db->get('tm_class')->result();
     }
 

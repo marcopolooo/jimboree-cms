@@ -80,13 +80,13 @@ class Otherservice extends CI_Controller
     }
 
     public function store(){
-        $data['program'] = $this->input->post('program');
+        $data['title'] = $this->input->post('title');
         $data['desc'] = $this->input->post('desc');
 
         $config = getConfigImage("otherservice");
         $this->load->library('upload', $config);
         
-        if ( ! $this->upload->do_upload('image'))
+        if ( ! $this->upload->do_upload('images'))
         {
             $result = $this->OtherServiceModel->store($data);
             if ($result) {
@@ -104,7 +104,6 @@ class Otherservice extends CI_Controller
         else
         {
             $data['image'] = array('upload-data' => $this->upload->data());
-            print_r($data);die();
             $result = $this->OtherServiceModel->store($data);
             if ($result) {
                 $this->session->set_flashdata('success', 'Success insert!');
@@ -124,17 +123,25 @@ class Otherservice extends CI_Controller
     public function update(){
         $data = array();
         $data['id'] = $this->input->post('id');
-        $data['program'] = $this->input->post('program');
+        $data['title'] = $this->input->post('title');
         $data['desc'] = $this->input->post('desc');
 
         $config = getConfigImage("otherservice");
         $this->load->library('upload', $config);
         
-        if ( ! $this->upload->do_upload('image'))
+        if ( ! $this->upload->do_upload('images'))
         {
-            $error = array('error' => $this->upload->display_errors());
-            $this->session->set_flashdata('error', 'Failed insert! Because ' . $error['error']);
-            redirect(base_url('master-data/otherservice'));
+            $result = $this->OtherServiceModel->update($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success update!');
+                redirect('master-data/otherservice');
+            } else{
+                $this->session->set_flashdata('error', 'Failed update!');
+                redirect('master-data/otherservice');
+            }
+            // $error = array('error' => $this->upload->display_errors());
+            // $this->session->set_flashdata('error', 'Failed insert! Because ' . $error['error']);
+            // redirect(base_url('master-data/otherservice'));
         }
         else
         {

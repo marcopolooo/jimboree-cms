@@ -238,3 +238,12 @@ $route['transaction/testimoni/store']['post'] = 'transaction/testimoni/store';
 $route['transaction/testimoni/edit/(:num)'] = 'transaction/testimoni/edit/$1';
 $route['transaction/testimoni/update']['post'] = 'transaction/testimoni/update';
 $route['transaction/testimoni/destroy']['post'] = 'transaction/testimoni/destroy';
+
+// Schedule
+$route['transaction/schedule'] = 'transaction/schedule';
+$route['transaction/schedule/index-data'] = 'transaction/schedule/indexData';
+$route['transaction/schedule/add']= 'transaction/schedule/add';
+$route['transaction/schedule/store']['post'] = 'transaction/schedule/store';
+$route['transaction/schedule/edit/(:num)'] = 'transaction/schedule/edit/$1';
+$route['transaction/schedule/update']['post'] = 'transaction/schedule/update';
+$route['transaction/schedule/destroy']['post'] = 'transaction/schedule/destroy';

@@ -18,12 +18,13 @@
             <div class="col-lg-12">
               <div class="box box-primary">
                 <!-- form start -->
-                <form role="form" action="<?php echo base_url('master-data/otherservice/store'); ?>" method="post" enctype="multipart/form-data">
+                <form role="form" action="<?php echo base_url('master-data/otherservice/update'); ?>" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                       <div class="form-group">
-                        <label class="col-lg-2" for="class">Program</label>
+                        <input type="hidden" name="id" value="<?php echo $data[0]['id']; ?>">
+                        <label class="col-lg-2" for="class">Title</label>
                         <div class="col-lg-10">
-                          <input type="text" class="form-control" placeholder="Enter Program Name" name="program" required value="<?php echo $data[0]['title']; ?>"><br>
+                          <input type="text" class="form-control" placeholder="Enter Title Name" name="title" required value="<?php echo $data[0]['title']; ?>"><br>
                         </div>
                       </div>
                       <div class="form-group">
@@ -39,7 +40,7 @@
                           <div class="input-group">
                               <span class="input-group-btn">
                                   <span class="btn btn-default btn-file">
-                                      Browse… <input type="file" id="imgInp" name="image">
+                                      Browse… <input type="file" id="imgInp" name="images">
                                   </span>
                               </span>
                               <input type="text" class="form-control" readonly value="<?php echo base_url() . explode("jimboree-cms/", $data[0]['image'])[1]; ?>">

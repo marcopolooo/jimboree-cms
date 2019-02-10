@@ -58,7 +58,7 @@ class Classes extends CI_Controller
             $row[] = $no;
             $row[] = $l->nama_ruang_kelas;
             $row[] =
-            '<a class="btn btn-sm btn-primary" href="'. base_url("master-data/subjects/edit/".$l->id_class) .'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+            '<a class="btn btn-sm btn-primary" href="'. base_url("master-data/class/edit/".$l->id_class) .'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
             <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="deleteItem('."'".$l->id_class."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
 
             $data[] = $row;

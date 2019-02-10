@@ -83,22 +83,31 @@ class Extracuricullar extends CI_Controller
         $data = array();
         $data['jenis_extracuricullar'] = $this->input->post('jenis_extracuricullar');
 
-        $result = $this->ExtracuricullarModel->store($data);
-        if ($result) {
-            $this->session->set_flashdata('success', 'Success input');
-            redirect('master-data/extracuricullar');
-        } else{
-            $this->session->set_flashdata('error', 'Failed insert!');
-            redirect('master-data/extracuricullar');
+        $config = getConfigImage("extracuricullar");
+        $this->load->library('upload', $config);
+        
+        if ( ! $this->upload->do_upload('images'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+            $this->session->set_flashdata('error', 'Failed insert! Because ' . $error['error']);
+            redirect(base_url('master-data/extracuricullar'));
+        }
+        else
+        {
+            $data['image'] = array('upload-data' => $this->upload->data());
+            $result = $this->ExtracuricullarModel->store($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success input');
+                redirect('master-data/extracuricullar');
+            } else{
+                $this->session->set_flashdata('error', 'Failed insert!');
+                redirect('master-data/extracuricullar');
+            }
         }
     }
 
     public function edit($id){
         $result['data'] = $this->ExtracuricullarModel->getById($id);
-        // $result['extracuricullar'] = $this->extracuricullarModel->get();
-        // header('Content-Type: application/json');
-        // echo json_encode( $result);
-        // echo $result['data'][0];
         $this->load->view('extracuricullar/edit', $result);
     }
 
@@ -107,13 +116,33 @@ class Extracuricullar extends CI_Controller
         $data['id'] = $this->input->post('id');
         $data['jenis_extracuricullar'] = $this->input->post('jenis_extracuricullar');
 
-        $result = $this->ExtracuricullarModel->update($data);
-        if ($result) {
-            $this->session->set_flashdata('success', 'Success Update!');
-            redirect('master-data/extracuricullar');
-        } else{
-            $this->session->set_flashdata('error', 'Failed update!');
-            redirect('master-data/extracuricullar');
+        $config = getConfigImage("extracuricullar");
+        $this->load->library('upload', $config);
+        
+        if ( ! $this->upload->do_upload('images') )
+        {
+            $result = $this->NewsModel->update($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success update!');
+                redirect('master-data/extracuricullar');
+            } else{
+                $this->session->set_flashdata('error', 'Failed update!');
+                redirect('master-data/extracuricullar');
+            }
+        }
+        else
+        {
+            $this->upload->do_upload('images');
+            $data['image'] = array('upload-data' => $this->upload->data());
+
+            $result = $this->ExtracuricullarModel->update($data);
+            if ($result) {
+                $this->session->set_flashdata('success', 'Success Update!');
+                redirect('master-data/extracuricullar');
+            } else{
+                $this->session->set_flashdata('error', 'Failed update!');
+                redirect('master-data/extracuricullar');
+            }
         }
     }
 

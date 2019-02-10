@@ -329,9 +329,14 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="<?php echo (($this->uri->segment(2) == "testimoni")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('transaction/testimoni'); ?>">
-                <i class="fa fa-gear"></i> <span>Testimoni</span>
+            <li class="<?php echo (($this->uri->segment(2) == "extracuricullar-student")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('transaction/extracuricullar-student'); ?>">
+                <i class="fa fa-gear"></i> <span>Extracuricullar Student List</span>
+              </a>
+            </li>
+            <li class="<?php echo (($this->uri->segment(2) == "schedule")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('transaction/schedule'); ?>">
+                <i class="fa fa-gear"></i> <span>Schedule</span>
               </a>
             </li>
             <li class="<?php echo (($this->uri->segment(2) == "schoolyear")) ? 'active' : '' ?>">
@@ -339,16 +344,11 @@
                 <i class="fa fa-gear"></i> <span>School Year</span>
               </a>
             </li>
-            <li class="<?php echo (($this->uri->segment(2) == "extracuricullar-student")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('transaction/extracuricullar-student'); ?>">
-                <i class="fa fa-gear"></i> <span>Extracuricullar Student List</span>
+            <li class="<?php echo (($this->uri->segment(2) == "testimoni")) ? 'active' : '' ?>">
+              <a href="<?php echo base_url('transaction/testimoni'); ?>">
+                <i class="fa fa-gear"></i> <span>Testimoni</span>
               </a>
             </li>
-            <!-- <li class="<?php echo (($this->uri->segment(1) == "schoolyear")) ? 'active' : '' ?>">
-              <a href="<?php echo base_url('schoolyear'); ?>">
-                <i class="fa fa-gear"></i> <span>School Year</span>
-              </a>
-            </li> -->
           </ul>
         </li>
       </ul>

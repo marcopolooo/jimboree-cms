@@ -4,11 +4,11 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          Add Classes Program
+          Add Other Service
         </h1>
         <ol class="breadcrumb">
           <li><a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Add Classes Program</li>
+          <li class="active">Add Other Service</li>
         </ol>
       </section>
 
@@ -21,9 +21,9 @@
                 <form role="form" action="<?php echo base_url('master-data/otherservice/store'); ?>" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                       <div class="form-group">
-                        <label class="col-lg-2" for="class">Program</label>
+                        <label class="col-lg-2" for="class">Title</label>
                         <div class="col-lg-10">
-                          <input type="text" class="form-control" placeholder="Enter Program Name" name="program" required><br>
+                          <input type="text" class="form-control" placeholder="Enter Title Name" name="title" required><br>
                         </div>
                       </div>
                       <div class="form-group">
@@ -39,7 +39,7 @@
                           <div class="input-group">
                               <span class="input-group-btn">
                                   <span class="btn btn-default btn-file">
-                                      Browse… <input type="file" id="imgInp" name="image">
+                                      Browse… <input type="file" id="imgInp" name="images">
                                   </span>
                               </span>
                               <input type="text" class="form-control" readonly>
